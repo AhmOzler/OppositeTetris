@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Shape : MonoBehaviour
 {
+    [SerializeField] [Range(0, 1)] float dropInterval = 0.2f;
+    float timeToDrop = 0;
+
     public void MoveDown() {
         transform.position += Vector3.down;
     }
