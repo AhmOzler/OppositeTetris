@@ -6,8 +6,11 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] Shape[] shapeTypes;
 
+    private static Spawner instance;
+    public static Spawner Instance => instance;
+
     public Shape SpawnShape() {
 
-        return Instantiate(shapeTypes[Random.Range(0, shapeTypes.Length)]) as Shape;
+        return Instantiate(shapeTypes[Random.Range(0, shapeTypes.Length)], transform.position, Quaternion.identity) as Shape;
     }
 }

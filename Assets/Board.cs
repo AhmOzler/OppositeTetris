@@ -16,7 +16,7 @@ public class Board : MonoBehaviour
     private void Awake() {
 
         if(instance) {
-            Destroy(instance);
+            Destroy(gameObject);
             return;
         }          
         else
@@ -32,7 +32,7 @@ public class Board : MonoBehaviour
         {
             for (int x = 0; x < boardWidth; x++)
             {
-                GameObject gridInstance = Instantiate(grid, new Vector2(x, y), Quaternion.identity);
+                GameObject gridInstance = Instantiate(grid, new Vector2(x, y), Quaternion.identity, transform);
                 gridInstance.name = x.ToString() + " " + y.ToString();
             }
         }
@@ -43,11 +43,10 @@ public class Board : MonoBehaviour
         
         foreach (Transform child in shape)
         {
-            float childx = Mathf.Round(child.position.x);
-            float childy = Mathf.Round(child.position.y);
+            int childx = (int) Mathf.Round(child.position.x);
+            int childy = (int) Mathf.Round(child.position.y);
 
-            gridArray[(int) childx, (int) childy] = child;
-            shape.GetComponent<Shape>().MoveUp();
+            gridArray[childx, childy] = child;
         }
     }
 
@@ -56,18 +55,12 @@ public class Board : MonoBehaviour
 
         foreach (Transform child in shape)
         {
-            float childx = Mathf.Round(child.position.x);
-            float childy = Mathf.Round(child.position.y);
-            Debug.Log(child.name + ": " + new Vector2(childx, childy));
+            int childx = (int) Mathf.Round(child.position.x);
+            int childy = (int) Mathf.Round(child.position.y);
 
-            if (gridArray[(int)childx, (int)childy]) { 
-                
-                return false;
-            }
-            
-            if (childx > boardWidth || childx < 0) return false;
+            if (childx >= boardWidth || childx < 0 || childy < 0) return false;
 
-            if (childy <= 0) return false;
+            if (gridArray[childx, childy] != null) return false;
         }
 
         return true;

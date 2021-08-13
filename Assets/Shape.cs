@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Shape : MonoBehaviour
 {
-    [SerializeField] [Range(0, 1)] float dropInterval = 0.2f;
-    float timeToDrop = 0;
-
     public void MoveDown() {
         transform.position += Vector3.down;
     }
@@ -27,7 +24,11 @@ public class Shape : MonoBehaviour
     }
 
 
-    public void Rotate() {
+    public void RotateRight() {
+        transform.Rotate(0, 0, -90);
+    }
+    
+    public void RotateLeft() {
         transform.Rotate(0, 0, 90);
     }
 }
