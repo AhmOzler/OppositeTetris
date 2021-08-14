@@ -40,6 +40,8 @@ public class GameController : MonoBehaviour
                 activeShape.MoveUp();
                 Board.Instance.StoreShapeInGrid(activeShape.transform);
                 activeShape = spawner.SpawnShape();
+
+                Board.Instance.DestroyAllRows();
             }
         }
         else if (Input.GetButton("MoveRight") && Time.time >= timeToNextKeyRightLeft)

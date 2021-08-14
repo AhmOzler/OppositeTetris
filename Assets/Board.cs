@@ -65,4 +65,56 @@ public class Board : MonoBehaviour
 
         return true;
     }
+
+
+    bool IsGridsFullInRow(int y) {
+
+        for (int x = 0; x < boardWidth; x++)
+        {
+            if(gridArray[x, y] == null) return false;
+        }
+
+        return true;
+    } 
+
+
+    void DestroyRow(int y) {
+
+        for (int x = 0; x < boardWidth; x++) {
+            
+            Destroy(gridArray[x, y].gameObject);
+            gridArray[x, y] = null;
+        }
+    }
+
+
+    void ShiftRowDown(int i) {
+        
+        for (int y = i; y < boardHeight; y++) {
+
+            for (int x = 0; x < boardWidth; x++) {
+
+                if (gridArray[x, y] != null) {
+
+                    gridArray[x, y].position += Vector3.down;
+                    gridArray[x, y - 1] = gridArray[x, y];
+                    gridArray[x, y] = null;                   
+                }
+            }
+        }
+    }
+
+
+    public void DestroyAllRows() {
+
+        for (int y = 0; y < boardHeight; y++)
+        {
+            if(IsGridsFullInRow(y)) {
+
+                DestroyRow(y);
+                ShiftRowDown(y);
+                y--; // ANCHOR y'nin sabit yerde kalıp üstteki sütunları aşağı çekmesi gerektiği için yapıldı.
+            }
+        }
+    }
 }
