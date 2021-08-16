@@ -8,8 +8,8 @@ public class Board : MonoBehaviour
     public static Board Instance => instance;
 
     [SerializeField] GameObject grid;
-    [SerializeField] [Range(0, 10)] int boardWidth;
-    [SerializeField] [Range(0, 20)] int boardHeight;
+    [SerializeField] [Range(0, 15)] int boardWidth;
+    [SerializeField] [Range(0, 30)] int boardHeight;
 
     Transform[,] gridArray;   
 
@@ -116,5 +116,16 @@ public class Board : MonoBehaviour
                 y--; // ANCHOR y'nin sabit yerde kalıp üstteki sütunları aşağı çekmesi gerektiği için yapıldı.
             }
         }
+    }
+
+
+    public bool IsOverLimit() {
+
+        for (int x = 0; x < boardWidth; x++)
+        {
+            if (gridArray[x, boardHeight - 1] != null) return true;
+        }
+        
+        return false;
     }
 }

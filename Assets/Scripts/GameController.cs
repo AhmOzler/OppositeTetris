@@ -37,11 +37,18 @@ public class GameController : MonoBehaviour
 
             if (!Board.Instance.IsValidPosition(activeShape.transform))
             {
-                activeShape.MoveUp();
-                Board.Instance.StoreShapeInGrid(activeShape.transform);
-                activeShape = spawner.SpawnShape();
+                if(!Board.Instance.IsOverLimit()) {
 
-                Board.Instance.DestroyAllRows();
+                    activeShape.MoveUp();
+                    Board.Instance.StoreShapeInGrid(activeShape.transform);
+                    activeShape = spawner.SpawnShape();
+
+                    Board.Instance.DestroyAllRows();
+                }
+                else {
+                    Time.timeScale = 0;
+                }
+                
             }
         }
         else if (Input.GetButton("MoveRight") && Time.time >= timeToNextKeyRightLeft)

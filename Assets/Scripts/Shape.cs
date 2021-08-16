@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shape : MonoBehaviour
 {
+    
     public void MoveDown() {
         transform.position += Vector3.down;
     }
@@ -27,6 +28,7 @@ public class Shape : MonoBehaviour
     public void RotateRight() {
         transform.Rotate(0, 0, -90);
     }
+
     
     public void RotateLeft() {
         transform.Rotate(0, 0, 90);
