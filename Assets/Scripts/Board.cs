@@ -123,7 +123,7 @@ public class Board : MonoBehaviour
 
         for (int x = 0; x < boardWidth; x++)
         {
-            if (gridArray[x, boardHeight - 1] != null) return true;
+            if (gridArray[x, 23] != null) return true;
         }
         
         return false;

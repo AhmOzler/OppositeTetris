@@ -22,12 +22,15 @@ public class GameController : MonoBehaviour
     }
 
     private void Start() {
+        SceneController.Instance.GetGameOverSceneAnim("OpenGameoverWall");
         activeShape = spawner.SpawnShape();
     }
 
 
     void Update()
     {      
+        if(activeShape == null) return;
+
         if (Input.GetButton("MoveDown") && Time.time >= timeToNextKeyDown || Time.time >= timeToDrop)
         {
             timeToDrop = Time.time + dropInterval;
@@ -46,7 +49,8 @@ public class GameController : MonoBehaviour
                     Board.Instance.DestroyAllRows();
                 }
                 else {
-                    Time.timeScale = 0;
+                    activeShape = null;
+                    SceneController.Instance.GetGameOverSceneAnim("CloseGameoverWall");                
                 }
                 
             }
