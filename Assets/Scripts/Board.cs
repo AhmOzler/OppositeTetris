@@ -10,8 +10,11 @@ public class Board : MonoBehaviour
     [SerializeField] GameObject grid;
     [SerializeField] [Range(0, 15)] int boardWidth;
     [SerializeField] [Range(0, 30)] int boardHeight;
+    [SerializeField] Color shadowShapeColor = new Color(1, 1, 1, 0.2f);
 
-    Transform[,] gridArray;   
+    Transform[,] gridArray;  
+    Shape shadowShape; 
+    bool isHitBottom = false;
 
     private void Awake() {
 
@@ -127,5 +130,40 @@ public class Board : MonoBehaviour
         }
         
         return false;
+    }
+
+
+    public void ShadowShape(Shape shape) {
+
+        if(shadowShape == null) {
+            
+            shadowShape = Instantiate(shape, shape.transform.position, shape.transform.rotation) as Shape;
+            shadowShape.name = "ShadowOf" + shape.name;
+
+            var renderers = shadowShape.GetComponentsInChildren<SpriteRenderer>();
+
+            foreach (SpriteRenderer renderer in renderers)
+            {
+                renderer.color = shadowShapeColor;
+            }
+        }
+        else {
+            shadowShape.transform.position = shape.transform.position;
+            shadowShape.transform.rotation = shape.transform.rotation;
+        }
+        
+
+        isHitBottom = false;   
+        
+        while(!isHitBottom) {
+
+            shadowShape.MoveDown();
+
+            if(!IsValidPosition(shadowShape.transform)) {
+
+                isHitBottom = true;
+                shadowShape.MoveUp();
+            }
+        }
     }
 }

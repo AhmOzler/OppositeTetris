@@ -8,7 +8,6 @@ public class SceneController : MonoBehaviour
     private static SceneController instance;
     public static SceneController Instance => instance;
 
-    //[SerializeField] GameObject GameoverMenu;
 
     Animator gameoverAnim;
     string currentState;

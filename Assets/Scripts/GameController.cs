@@ -18,10 +18,12 @@ public class GameController : MonoBehaviour
     Spawner spawner;
 
     private void Awake() {
+
         spawner = FindObjectOfType<Spawner>();
     }
 
     private void Start() {
+
         SceneController.Instance.GetGameOverSceneAnim("OpenGameoverWall");
         activeShape = spawner.SpawnShape();
     }
@@ -31,16 +33,30 @@ public class GameController : MonoBehaviour
     {      
         if(activeShape == null) return;
 
+        PlayerInput();
+    }
+
+
+    private void LateUpdate() {
+        
+        if(activeShape)
+            Board.Instance.ShadowShape(activeShape);
+    }
+
+
+    void PlayerInput() {
+
         if (Input.GetButton("MoveDown") && Time.time >= timeToNextKeyDown || Time.time >= timeToDrop)
         {
             timeToDrop = Time.time + dropInterval;
             timeToNextKeyDown = Time.time + keyDownInterval;
-
+            
             activeShape.MoveDown();
 
             if (!Board.Instance.IsValidPosition(activeShape.transform))
             {
-                if(!Board.Instance.IsOverLimit()) {
+                if (!Board.Instance.IsOverLimit())
+                {
 
                     activeShape.MoveUp();
                     Board.Instance.StoreShapeInGrid(activeShape.transform);
@@ -48,11 +64,12 @@ public class GameController : MonoBehaviour
 
                     Board.Instance.DestroyAllRows();
                 }
-                else {
+                else
+                {
                     activeShape = null;
-                    SceneController.Instance.GetGameOverSceneAnim("CloseGameoverWall");                
+                    SceneController.Instance.GetGameOverSceneAnim("CloseGameoverWall");
                 }
-                
+
             }
         }
         else if (Input.GetButton("MoveRight") && Time.time >= timeToNextKeyRightLeft)
@@ -85,7 +102,7 @@ public class GameController : MonoBehaviour
 
             if (!Board.Instance.IsValidPosition(activeShape.transform))
             {
-                activeShape.RotateRight();            
+                activeShape.RotateRight();
             }
         }
     }
