@@ -5,11 +5,19 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] Shape[] shapeTypes;
-    [SerializeField] Transform[] UIButtons;
-    Queue<Transform> queueShape = new Queue<Transform>(3);
+
+    [SerializeField] Transform[] buttons;
+    public Transform[] Buttons => buttons;
 
     private static Spawner instance;
     public static Spawner Instance => instance;
+
+
+    private void Start() {
+
+        SpawnShapeInButtons();
+    }
+    
 
     public Shape SpawnShape() {
 
@@ -17,21 +25,29 @@ public class Spawner : MonoBehaviour
     }
 
 
-    public void Update() {
+    public void SpawnShapeInButtons() {
 
-        if(queueShape.Count < 3) {
-
-            for (int i = 0; i < 3; i++)
-            {
-                Transform x = SpawnShape().transform;
-                queueShape.Enqueue(x);
-                x.position = UIButtons[i].position; 
-            }
-        }       
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            StoredShape storedShape = buttons[i].GetComponent<StoredShape>();
+            
+            storedShape.Shape = SpawnShape();
+            storedShape.Shape.transform.position = buttons[i].position + storedShape.Shape.ShapeOffset;
+            storedShape.Shape.transform.localScale = new Vector2(0.8f, 0.8f);
+            storedShape.Shape.transform.SetParent(buttons[i]);
+        }
     }
 
-    public void UseStoredBlocks() {
 
+    public void DestroyAllShapes()
+    {
+        foreach (Transform button in buttons)
+        {
+            if(button.GetComponent<StoredShape>().Shape == null)
+                continue;
+
+            Destroy(button.GetComponent<StoredShape>().Shape.gameObject);
+        }
         
     }
 }

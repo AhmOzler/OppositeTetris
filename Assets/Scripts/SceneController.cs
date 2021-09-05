@@ -21,9 +21,9 @@ public class SceneController : MonoBehaviour
         else {      
             instance = null;
             Destroy(gameObject);
-        }
-            
+        }           
     }
+    
 
     public void OnRestartPressed()
     {

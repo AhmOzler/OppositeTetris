@@ -13,7 +13,9 @@ public class Board : MonoBehaviour
     [SerializeField] Color shadowShapeColor = new Color(1, 1, 1, 0.2f);
 
     Transform[,] gridArray;  
+
     Shape shadowShape; 
+
     bool isHitBottom = false;
 
     private void Awake() {
@@ -42,12 +44,12 @@ public class Board : MonoBehaviour
     }
 
 
-    public void StoreShapeInGrid(Transform shape) {
-        
+    public void StoreShapeInGrid(Transform shape)
+    {
         foreach (Transform child in shape)
         {
-            int childx = (int) Mathf.Round(child.position.x);
-            int childy = (int) Mathf.Round(child.position.y);
+            int childx = (int)Mathf.Round(child.position.x);
+            int childy = (int)Mathf.Round(child.position.y);
 
             gridArray[childx, childy] = child;
         }
@@ -133,26 +135,63 @@ public class Board : MonoBehaviour
     }
 
 
-    public void ShadowShape(Shape shape) {
+    public void CreateShadowShape(Shape shape) {
 
-        if(shadowShape == null) {
-            
-            shadowShape = Instantiate(shape, shape.transform.position, shape.transform.rotation) as Shape;
-            shadowShape.name = "ShadowOf" + shape.name;
+        if(shadowShape) return;
 
-            var renderers = shadowShape.GetComponentsInChildren<SpriteRenderer>();
+        shadowShape = Instantiate(shape, shape.transform.position, shape.transform.rotation) as Shape;
+        shadowShape.name = "ShadowOf" + shape.name;
 
-            foreach (SpriteRenderer renderer in renderers)
+        var renderers = shadowShape.GetComponentsInChildren<SpriteRenderer>();
+
+        foreach (SpriteRenderer renderer in renderers)
+        {
+            renderer.color = shadowShapeColor;
+            renderer.sortingOrder = 0;
+        }
+    }
+
+
+    public void ResetShadowShape(Transform shape)
+    {
+        if (shadowShape)
+        {
+            shape.transform.position = shadowShape.transform.position;
+            Destroy(shadowShape.gameObject);
+        }
+    }
+
+
+    public void ShadowShapePos(Shape shape, bool setActive)
+    {
+        if(!shadowShape) return;
+
+        int posX = (int) Mathf.Round(shape.transform.position.x);
+        int posY = (int) Mathf.Round(shape.transform.position.y);
+
+        shadowShape.transform.position = new Vector2(posX, posY);
+        shadowShape.transform.rotation = shape.transform.rotation;
+        shadowShape.gameObject.SetActive(setActive);
+
+        isHitBottom = false;
+
+        while (!isHitBottom)
+        {
+            shadowShape.MoveDown();
+
+            if (!IsValidPosition(shadowShape.transform))
             {
-                renderer.color = shadowShapeColor;
+                isHitBottom = true;
+                shadowShape.MoveUp();
             }
         }
-        else {
-            shadowShape.transform.position = shape.transform.position;
-            shadowShape.transform.rotation = shape.transform.rotation;
-        }
-        
+    }
 
+
+    public void CreateShadowShapeBottom(Shape shape) {
+
+        CreateShadowShape(shape);
+        
         isHitBottom = false;   
         
         while(!isHitBottom) {

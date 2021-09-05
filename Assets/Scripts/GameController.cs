@@ -37,11 +37,11 @@ public class GameController : MonoBehaviour
     }
 
 
-    private void LateUpdate() {
+    /* private void LateUpdate() {
         
         if(activeShape)
-            Board.Instance.ShadowShape(activeShape);
-    }
+            Board.Instance.CreateShadowShapeBottom(activeShape);
+    } */
 
 
     void PlayerInput() {
@@ -56,12 +56,11 @@ public class GameController : MonoBehaviour
             if (!Board.Instance.IsValidPosition(activeShape.transform))
             {
                 if (!Board.Instance.IsOverLimit())
-                {
-
+                {                    
                     activeShape.MoveUp();
                     Board.Instance.StoreShapeInGrid(activeShape.transform);
                     activeShape = spawner.SpawnShape();
-
+                    
                     Board.Instance.DestroyAllRows();
                 }
                 else
@@ -69,7 +68,6 @@ public class GameController : MonoBehaviour
                     activeShape = null;
                     SceneController.Instance.GetGameOverSceneAnim("CloseGameoverWall");
                 }
-
             }
         }
         else if (Input.GetButton("MoveRight") && Time.time >= timeToNextKeyRightLeft)
@@ -108,7 +106,7 @@ public class GameController : MonoBehaviour
     }
 
 
-    private void IsValidPosition()
+    /* private void IsValidPosition()
     {
         if (!Board.Instance.IsValidPosition(activeShape.transform))
         {
@@ -116,5 +114,5 @@ public class GameController : MonoBehaviour
             Board.Instance.StoreShapeInGrid(activeShape.transform);
             activeShape = spawner.SpawnShape();
         }
-    }
+    } */
 }
