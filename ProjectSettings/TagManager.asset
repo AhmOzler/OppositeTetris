@@ -44,11 +44,11 @@ TagManager:
   - name: BackGroundPanel
     uniqueID: 467292181
     locked: 0
-  - name: Shape
-    uniqueID: 1533685205
-    locked: 0
   - name: Button
     uniqueID: 1659545313
+    locked: 0
+  - name: Shape
+    uniqueID: 1533685205
     locked: 0
   - name: GameOverPanel
     uniqueID: 4207102445

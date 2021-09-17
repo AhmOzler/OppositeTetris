@@ -19,9 +19,11 @@ public class Shape : MonoBehaviour
 
     float timeToDrop = 0;
     Spawner spawner;
+    Animator[] animators;
 
     private void Awake() {
         spawner = FindObjectOfType<Spawner>();
+        animators = GetComponentsInChildren<Animator>();
     }
 
 
@@ -46,16 +48,44 @@ public class Shape : MonoBehaviour
 
 
     public void RotateRight() {
+
         transform.Rotate(0, 0, -90);
+        
+        foreach (Transform child in transform)
+        {
+            child.Rotate(0, 0, 90);
+        }
     }
 
     
-    public void RotateLeft() {
-        transform.Rotate(0, 0, 90);
+    public void GetShapeAnimation(string animationName) {
+
+        foreach (Animator animator in animators)
+        {
+            animator.Play(animationName);
+        }       
+    }
+
+
+    public void SetPivotOutButton() {
+
+        foreach (Transform child in transform)
+        {
+            child.localPosition += shapeOffset;           
+        }
+    }
+
+
+    public void SetPivotInButton() {
+
+        foreach (Transform child in transform)
+        {
+            child.localPosition -= shapeOffset;
+        }
     }
     
 
-    private void Update() {
+    /* private void Update() {
 
         if(!moveDownOn) return;
 
@@ -74,5 +104,5 @@ public class Shape : MonoBehaviour
                 }
             }
         }
-    }
+    } */
 }

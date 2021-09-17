@@ -1,0 +1,1800 @@
+fileFormatVersion: 2
+guid: a37b75cc1fe2d974e99fb26b9df50d34
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7204842031849456899
+    second: Sqr4DestroyAnim_0
+  - first:
+      213: 2341527873044778168
+    second: Sqr4DestroyAnim_1
+  - first:
+      213: -8389456382133862215
+    second: Sqr4DestroyAnim_2
+  - first:
+      213: 786311657504711781
+    second: Sqr4DestroyAnim_3
+  - first:
+      213: -7327739747182764912
+    second: Sqr4DestroyAnim_4
+  - first:
+      213: -2190594998700930003
+    second: Sqr4DestroyAnim_5
+  - first:
+      213: -8895652412057800966
+    second: Sqr4DestroyAnim_6
+  - first:
+      213: -5329330645921613613
+    second: Sqr4DestroyAnim_7
+  - first:
+      213: 4640071628030046490
+    second: Sqr4DestroyAnim_8
+  - first:
+      213: 7844755016260772238
+    second: Sqr4DestroyAnim_9
+  - first:
+      213: -2475397590887860953
+    second: Sqr4DestroyAnim_10
+  - first:
+      213: 2938590287519183780
+    second: Sqr4DestroyAnim_11
+  - first:
+      213: 838445675146136816
+    second: Sqr4DestroyAnim_12
+  - first:
+      213: 6626319482085481528
+    second: Sqr4DestroyAnim_13
+  - first:
+      213: 482575006492102085
+    second: Sqr4DestroyAnim_14
+  - first:
+      213: 6427368747934342663
+    second: Sqr4DestroyAnim_15
+  - first:
+      213: -8622111405875817900
+    second: Sqr4DestroyAnim_16
+  - first:
+      213: 1438211333365933377
+    second: Sqr4DestroyAnim_17
+  - first:
+      213: 5662993649249144705
+    second: Sqr4DestroyAnim_18
+  - first:
+      213: 5343043960400795644
+    second: Sqr4DestroyAnim_19
+  - first:
+      213: 8701262629912231431
+    second: Sqr4DestroyAnim_20
+  - first:
+      213: 2500417903994823555
+    second: Sqr4DestroyAnim_21
+  - first:
+      213: -929931281702470039
+    second: Sqr4DestroyAnim_22
+  - first:
+      213: -4624200327227861297
+    second: Sqr4DestroyAnim_23
+  - first:
+      213: -8142487174318203507
+    second: Sqr4DestroyAnim_24
+  - first:
+      213: -2012065208805040774
+    second: Sqr4DestroyAnim_25
+  - first:
+      213: -4703545462356651362
+    second: Sqr4DestroyAnim_26
+  - first:
+      213: 4810602804341785392
+    second: Sqr4DestroyAnim_27
+  - first:
+      213: -1088544316066191343
+    second: Sqr4DestroyAnim_28
+  - first:
+      213: 1290367865799444886
+    second: Sqr4DestroyAnim_29
+  - first:
+      213: -47123791312341840
+    second: Sqr4DestroyAnim_30
+  - first:
+      213: -3033621435017599333
+    second: Sqr4DestroyAnim_31
+  - first:
+      213: -3817156512787904059
+    second: Sqr4DestroyAnim_32
+  - first:
+      213: -3678183410640446626
+    second: Sqr4DestroyAnim_33
+  - first:
+      213: -1346273456567148742
+    second: Sqr4DestroyAnim_34
+  - first:
+      213: 1747691480702390599
+    second: Sqr4DestroyAnim_35
+  - first:
+      213: -3839669035757541313
+    second: Sqr4DestroyAnim_36
+  - first:
+      213: -6150291365017032687
+    second: Sqr4DestroyAnim_37
+  - first:
+      213: 8087953308727789790
+    second: Sqr4DestroyAnim_38
+  - first:
+      213: -125112118263324292
+    second: Sqr4DestroyAnim_39
+  - first:
+      213: 3656679952242688909
+    second: Sqr4DestroyAnim_40
+  - first:
+      213: 7671711362557411061
+    second: Sqr4DestroyAnim_41
+  - first:
+      213: -6959574945036602568
+    second: Sqr4DestroyAnim_42
+  - first:
+      213: 6984158679880513157
+    second: Sqr4DestroyAnim_43
+  - first:
+      213: -4232004441584876540
+    second: Sqr4DestroyAnim_44
+  - first:
+      213: 7392062715459604937
+    second: Sqr4DestroyAnim_45
+  - first:
+      213: 5699818692960834043
+    second: Sqr4DestroyAnim_46
+  - first:
+      213: -3610767939789111349
+    second: Sqr4DestroyAnim_47
+  - first:
+      213: -5985241985630299274
+    second: Sqr4DestroyAnim_48
+  - first:
+      213: -1842164861261441015
+    second: Sqr4DestroyAnim_49
+  - first:
+      213: -6978465522765456727
+    second: Sqr4DestroyAnim_50
+  - first:
+      213: -1522825327499442151
+    second: Sqr4DestroyAnim_51
+  - first:
+      213: -7805598088739574912
+    second: Sqr4DestroyAnim_52
+  - first:
+      213: 4201898959857564653
+    second: Sqr4DestroyAnim_53
+  - first:
+      213: -1716643450458268745
+    second: Sqr4DestroyAnim_54
+  - first:
+      213: 3238732684509825677
+    second: Sqr4DestroyAnim_55
+  - first:
+      213: -3563660549942191230
+    second: Sqr4DestroyAnim_56
+  - first:
+      213: -4487439685729540856
+    second: Sqr4DestroyAnim_57
+  - first:
+      213: 6071796432669186745
+    second: Sqr4DestroyAnim_58
+  - first:
+      213: 3403428480685296783
+    second: Sqr4DestroyAnim_59
+  - first:
+      213: 5438341251784787891
+    second: Sqr4DestroyAnim_60
+  - first:
+      213: -7658249043796023860
+    second: Sqr4DestroyAnim_61
+  - first:
+      213: -4688869933186841766
+    second: Sqr4DestroyAnim_62
+  - first:
+      213: -5680850277372057104
+    second: Sqr4DestroyAnim_63
+  - first:
+      213: 7363842506210351834
+    second: Sqr4DestroyAnim_64
+  - first:
+      213: 3689569775882417144
+    second: Sqr4DestroyAnim_65
+  - first:
+      213: -3346337340293220672
+    second: Sqr4DestroyAnim_66
+  - first:
+      213: -2272863988192062478
+    second: Sqr4DestroyAnim_67
+  - first:
+      213: -4092974856589639623
+    second: Sqr4DestroyAnim_68
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 24
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 455
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 305c033b7adbcf360800000000000000
+      internalID: 7204842031849456899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 455
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc8280d137ce7020800000000000000
+      internalID: 2341527873044778168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 455
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b00744aed9a29b80800000000000000
+      internalID: -8389456382133862215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_3
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 455
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5642154594a89ea00800000000000000
+      internalID: 786311657504711781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_4
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 455
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09c19a22683ae4a90800000000000000
+      internalID: -7327739747182764912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_5
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 455
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2c0fa774717991e0800000000000000
+      internalID: -2190594998700930003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_6
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 455
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afea2fd234b4c8480800000000000000
+      internalID: -8895652412057800966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_7
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 455
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d83d37730a6a06b0800000000000000
+      internalID: -5329330645921613613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_8
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 455
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a117911cf88d46040800000000000000
+      internalID: 4640071628030046490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 390
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e81ef2ebf1b2edc60800000000000000
+      internalID: 7844755016260772238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_10
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 390
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 725754d910f95add0800000000000000
+      internalID: -2475397590887860953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_11
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 390
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a37ef31c48f7c820800000000000000
+      internalID: 2938590287519183780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_12
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 390
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc4c8636e1c2ab00800000000000000
+      internalID: 838445675146136816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_13
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 390
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c94f1167a65fb50800000000000000
+      internalID: 6626319482085481528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_14
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 390
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cd817f596372b600800000000000000
+      internalID: 482575006492102085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_15
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 390
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70ed21592d9923950800000000000000
+      internalID: 6427368747934342663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_16
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 390
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4529de6bb5b185880800000000000000
+      internalID: -8622111405875817900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_17
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 390
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145a735769d85f310800000000000000
+      internalID: 1438211333365933377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 325
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18fc9cc58bef69e40800000000000000
+      internalID: 5662993649249144705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_19
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 325
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf75cfe5c2e462a40800000000000000
+      internalID: 5343043960400795644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_20
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 325
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70ebc49b24811c870800000000000000
+      internalID: 8701262629912231431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_21
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 325
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38363adf5d443b220800000000000000
+      internalID: 2500417903994823555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_22
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 325
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96eb9902d683813f0800000000000000
+      internalID: -929931281702470039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_23
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 325
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc6965d6d4a83dfb0800000000000000
+      internalID: -4624200327227861297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_24
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 325
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8dd6924e03100f80800000000000000
+      internalID: -8142487174318203507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_25
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 325
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7dd04c5a55b314e0800000000000000
+      internalID: -2012065208805040774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_26
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 325
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e92d45b8256a9beb0800000000000000
+      internalID: -4703545462356651362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 260
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0334a4c43c1b2c240800000000000000
+      internalID: 4810602804341785392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_28
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 260
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 118aa9e36b6b4e0f0800000000000000
+      internalID: -1088544316066191343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_29
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 260
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6990e8ebcbe48e110800000000000000
+      internalID: 1290367865799444886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_30
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 260
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b4bb565925985ff0800000000000000
+      internalID: -47123791312341840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_31
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 260
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b96e3cea06966e5d0800000000000000
+      internalID: -3033621435017599333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_32
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 260
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c94533306cb60bc0800000000000000
+      internalID: -3817156512787904059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_33
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 260
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5b9a060da774fcc0800000000000000
+      internalID: -3678183410640446626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_34
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 260
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f17c29c63115de0800000000000000
+      internalID: -1346273456567148742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_35
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 260
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7411e3c542c014810800000000000000
+      internalID: 1747691480702390599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 195
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f38ea9cfa51c6bac0800000000000000
+      internalID: -3839669035757541313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_37
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 195
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 118e103d696c5aaa0800000000000000
+      internalID: -6150291365017032687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_38
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 195
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed84aa6beae2e3070800000000000000
+      internalID: 8087953308727789790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_39
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 195
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7161d9f033834ef0800000000000000
+      internalID: -125112118263324292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_40
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 195
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d83c7baea032fb230800000000000000
+      internalID: 3656679952242688909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_41
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 195
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5feff8876d4677a60800000000000000
+      internalID: 7671711362557411061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_42
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 195
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 833726df57f9a6f90800000000000000
+      internalID: -6959574945036602568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_43
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 195
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5863d31d057bce060800000000000000
+      internalID: 6984158679880513157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_44
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 195
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 404457be166e445c0800000000000000
+      internalID: -4232004441584876540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 130
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c11168ffd1e59660800000000000000
+      internalID: 7392062715459604937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_46
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 130
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf1df0ef6e2d91f40800000000000000
+      internalID: 5699818692960834043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_47
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 130
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcf308e70b9f3edc0800000000000000
+      internalID: -3610767939789111349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_48
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 130
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b90cf002620fca0800000000000000
+      internalID: -5985241985630299274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_49
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 130
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9081ec2a1d05f66e0800000000000000
+      internalID: -1842164861261441015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_50
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 130
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aa114e9492872f90800000000000000
+      internalID: -6978465522765456727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_51
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 130
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9188d63de66dddae0800000000000000
+      internalID: -1522825327499442151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_52
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 130
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08ba535e4e1fca390800000000000000
+      internalID: -7805598088739574912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_53
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 130
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: debb46467d4205a30800000000000000
+      internalID: 4201898959857564653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 65
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bb1f6180e14d28e0800000000000000
+      internalID: -1716643450458268745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_55
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 65
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8ac7ae873a42fc20800000000000000
+      internalID: 3238732684509825677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_56
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 65
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b5f946c955b8ec0800000000000000
+      internalID: -3563660549942191230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_57
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 65
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 805a91d916969b1c0800000000000000
+      internalID: -4487439685729540856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_58
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 65
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ba1bbd8faa534450800000000000000
+      internalID: 6071796432669186745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_59
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 65
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8cc1b9cb286b3f20800000000000000
+      internalID: 3403428480685296783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_60
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 65
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b74cff0e8ed87b40800000000000000
+      internalID: 5438341251784787891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_61
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 65
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc5201fd11f68b590800000000000000
+      internalID: -7658249043796023860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_62
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 65
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a53836273a9cdeeb0800000000000000
+      internalID: -4688869933186841766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f92f0b65c09921b0800000000000000
+      internalID: -5680850277372057104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_64
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ada179c7ebf913660800000000000000
+      internalID: 7363842506210351834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_65
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f33d79b92cf33330800000000000000
+      internalID: 3689569775882417144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_66
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c6723d2beb6f81d0800000000000000
+      internalID: -3346337340293220672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_67
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f3d801be3a2570e0800000000000000
+      internalID: -2272863988192062478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr4DestroyAnim_68
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9308e5ead05d237c0800000000000000
+      internalID: -4092974856589639623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

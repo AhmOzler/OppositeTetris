@@ -9,6 +9,4 @@ public class StoredShape : MonoBehaviour
         get { return shape; }
         set { shape = value; }
     }
-
-    
 }

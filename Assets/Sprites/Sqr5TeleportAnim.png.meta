@@ -1,0 +1,864 @@
+fileFormatVersion: 2
+guid: d32ffa5f5f668b8438da2f4eea095c69
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2754878180493862997
+    second: Sqr5TeleportAnim_0
+  - first:
+      213: -4616838842232430828
+    second: Sqr5TeleportAnim_1
+  - first:
+      213: 3187467650163350516
+    second: Sqr5TeleportAnim_2
+  - first:
+      213: 6306859483683624410
+    second: Sqr5TeleportAnim_3
+  - first:
+      213: 2238505043333591525
+    second: Sqr5TeleportAnim_4
+  - first:
+      213: 8374878271840782038
+    second: Sqr5TeleportAnim_5
+  - first:
+      213: -3977418071121418082
+    second: Sqr5TeleportAnim_6
+  - first:
+      213: 2942543947369740875
+    second: Sqr5TeleportAnim_7
+  - first:
+      213: -1817543085592247124
+    second: Sqr5TeleportAnim_8
+  - first:
+      213: 4315395407790566808
+    second: Sqr5TeleportAnim_9
+  - first:
+      213: 6033456912433741959
+    second: Sqr5TeleportAnim_10
+  - first:
+      213: 8698772133565672698
+    second: Sqr5TeleportAnim_11
+  - first:
+      213: 6094649836661138770
+    second: Sqr5TeleportAnim_12
+  - first:
+      213: -8572008481768454354
+    second: Sqr5TeleportAnim_13
+  - first:
+      213: -586803219922609997
+    second: Sqr5TeleportAnim_14
+  - first:
+      213: -9153393753928514813
+    second: Sqr5TeleportAnim_15
+  - first:
+      213: -2347598073367261321
+    second: Sqr5TeleportAnim_16
+  - first:
+      213: -2651816739145276673
+    second: Sqr5TeleportAnim_17
+  - first:
+      213: -6138792105420467810
+    second: Sqr5TeleportAnim_18
+  - first:
+      213: 3243808825897854955
+    second: Sqr5TeleportAnim_19
+  - first:
+      213: 3487769579465727768
+    second: Sqr5TeleportAnim_20
+  - first:
+      213: -5835277422900479280
+    second: Sqr5TeleportAnim_21
+  - first:
+      213: -4723222068021957449
+    second: Sqr5TeleportAnim_22
+  - first:
+      213: -5418972761122340989
+    second: Sqr5TeleportAnim_23
+  - first:
+      213: 203076836847366869
+    second: Sqr5TeleportAnim_24
+  - first:
+      213: -6549409196434687818
+    second: Sqr5TeleportAnim_25
+  - first:
+      213: 3274316485569517452
+    second: Sqr5TeleportAnim_26
+  - first:
+      213: -6367567229597600812
+    second: Sqr5TeleportAnim_27
+  - first:
+      213: 1282997946213557351
+    second: Sqr5TeleportAnim_28
+  - first:
+      213: -4978788381045138756
+    second: Sqr5TeleportAnim_29
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 24
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 388
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 558afc3fb1b4b3620800000000000000
+      internalID: 2754878180493862997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_1
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 388
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41f9287b881bdefb0800000000000000
+      internalID: -4616838842232430828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_2
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 388
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fb190d90f82c3c20800000000000000
+      internalID: 3187467650163350516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_3
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 388
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad514450947768750800000000000000
+      internalID: 6306859483683624410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_4
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 388
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e1b1df0a74c01f10800000000000000
+      internalID: 2238505043333591525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_5
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 388
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d6053e8a6b893470800000000000000
+      internalID: 8374878271840782038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 291
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e98a69b665f5dc8c0800000000000000
+      internalID: -3977418071121418082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_7
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 291
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4af2fe312406d820800000000000000
+      internalID: 2942543947369740875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_8
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 291
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca48e43813ac6c6e0800000000000000
+      internalID: -1817543085592247124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_9
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 291
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89d65ba624d53eb30800000000000000
+      internalID: 4315395407790566808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_10
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 291
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7800d3168152bb350800000000000000
+      internalID: 6033456912433741959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_11
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 291
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afcaf3bda2f38b870800000000000000
+      internalID: 8698772133565672698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 194
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25564905cbb849450800000000000000
+      internalID: 6094649836661138770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_13
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 194
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e274e88c3bb1a0980800000000000000
+      internalID: -8572008481768454354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_14
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 194
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b8157b94914bd7f0800000000000000
+      internalID: -586803219922609997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_15
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 194
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 303cfc7a0ec98f080800000000000000
+      internalID: -9153393753928514813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_16
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 194
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77f8d898df7ab6fd0800000000000000
+      internalID: -2347598073367261321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_17
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 194
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff2afc5c9bad23bd0800000000000000
+      internalID: -2651816739145276673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 97
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e91d076da11aecaa0800000000000000
+      internalID: -6138792105420467810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_19
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 97
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be72be2d0f2540d20800000000000000
+      internalID: 3243808825897854955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_20
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 97
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81fd77a14fb076030800000000000000
+      internalID: 3487769579465727768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_21
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 97
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0daf82ab91ee40fa0800000000000000
+      internalID: -5835277422900479280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_22
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 97
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bce348cd8eb37eb0800000000000000
+      internalID: -4723222068021957449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_23
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 97
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38ff8c51cf0fbc4b0800000000000000
+      internalID: -5418972761122340989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d2b562ae4971d200800000000000000
+      internalID: 203076836847366869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_25
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b875dd3903db15a0800000000000000
+      internalID: -6549409196434687818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_26
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c87939cde75b07d20800000000000000
+      internalID: 3274316485569517452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_27
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d3ba6c675bd1a7a0800000000000000
+      internalID: -6367567229597600812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_28
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7646d9f95df1ec110800000000000000
+      internalID: 1282997946213557351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sqr5TeleportAnim_29
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cba56ff985ac7eab0800000000000000
+      internalID: -4978788381045138756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

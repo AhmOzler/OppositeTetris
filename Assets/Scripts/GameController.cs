@@ -61,7 +61,7 @@ public class GameController : MonoBehaviour
                     Board.Instance.StoreShapeInGrid(activeShape.transform);
                     activeShape = spawner.SpawnShape();
                     
-                    Board.Instance.DestroyAllRows();
+                    //Board.Instance.DestroyAllRows();
                 }
                 else
                 {
@@ -96,7 +96,7 @@ public class GameController : MonoBehaviour
         {
             timeToNextKeyRotate = Time.time + keyRotateInterval;
 
-            activeShape.RotateLeft();
+            //activeShape.RotateLeft();
 
             if (!Board.Instance.IsValidPosition(activeShape.transform))
             {

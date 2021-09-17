@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class TouchController : MonoBehaviour
 {
-    [SerializeField] Collider2D button;
-    [SerializeField] Shape shape = null;
+    Collider2D button;
+    Shape shape = null;
     Spawner spawner;  
-    [SerializeField] bool isCoroutineActive = false;
+    bool isCoroutineActive = false;
+    IEnumerator spawnRoutine;
+    IEnumerator shiftRoutine;
+
 
     private void Awake() {
         spawner = FindObjectOfType<Spawner>();
@@ -16,6 +19,7 @@ public class TouchController : MonoBehaviour
 
 
     private void Update() {
+
         if(isCoroutineActive) return;
 
         if (Input.touchCount > 0) {
@@ -27,11 +31,8 @@ public class TouchController : MonoBehaviour
 
             TouchMoved(touch, touchPos);
 
-            TouchEnd(touch);
-
-            
-        }
-        Board.Instance.DestroyAllRows();
+            TouchEnd(touch);            
+        }       
     }
 
 
@@ -41,12 +42,13 @@ public class TouchController : MonoBehaviour
         {
             button = Physics2D.OverlapPoint(touchPos);
 
-            if (button)
+            if (button) 
                 shape = button.GetComponent<StoredShape>().Shape;
 
             if (shape != null)
-            {
+            {              
                 shape.transform.localScale = Vector3.one;
+                shape.SetPivotOutButton();
                 Board.Instance.CreateShadowShape(shape);
             }
         }
@@ -59,40 +61,37 @@ public class TouchController : MonoBehaviour
 
         if (touch.phase == TouchPhase.Moved)
         {
-            shape.transform.position = new Vector2(touchPos.x, touchPos.y + 3.5f);
-
-            if (Board.Instance.IsValidPosition(shape.transform)) {
-
-                Board.Instance.ShadowShapePos(shape, true);
-            }
-            else {
-                Board.Instance.ShadowShapePos(shape, false);
-            }
+            shape.transform.position = new Vector2(touchPos.x, touchPos.y + 3.5f);         
         }
     }
 
 
     void TouchEnd(Touch touch) 
     {
-        if(button == null) return;
+        if(button == null || shape == null) return;
 
         if (touch.phase == TouchPhase.Ended)
         {
             if (Board.Instance.IsValidPosition(shape.transform))
             {
                 Board.Instance.ResetShadowShape(shape.transform);
+                Board.Instance.StoreShapeInGrid(shape.transform);
+                Board.Instance.DestroyAllRows();
 
-                button.GetComponent<StoredShape>().Shape.MoveDownOn = true;
                 button.GetComponent<StoredShape>().Shape = null;
                 shape = null;
-                spawner.DestroyAllShapes();
-                spawner.SpawnShapeInButtons();
+
+                spawnRoutine = Board.Instance.ShiftAllRowsDown();
+                shiftRoutine = spawner.SpawnRandomSqrAtBottom();
+                StartCoroutine(shiftRoutine);
+                StartCoroutine(spawnRoutine);                                             
             }
             else
             {
+                shape.SetPivotInButton();
+                shape.transform.localScale = new Vector2(.5f, .5f);
                 StartCoroutine(TurntoButtonPos());
-                Board.Instance.ResetShadowShape(shape.transform);
-                shape.transform.localScale = new Vector2(.8f, .8f);
+                Board.Instance.ResetShadowShape(shape.transform);  //TODO Hata             
             }      
         }
     }
@@ -102,17 +101,17 @@ public class TouchController : MonoBehaviour
     {
         isCoroutineActive = true;
 
-        while ((shape.transform.position - (button.transform.position + shape.ShapeOffset)).sqrMagnitude > Mathf.Epsilon)
+        while ((shape.transform.position - button.transform.position).sqrMagnitude > Mathf.Epsilon)
         {
             isCoroutineActive = true;
 
             shape.transform.position = Vector2.MoveTowards(
-                shape.transform.position, button.transform.position + shape.ShapeOffset, 50 * Time.deltaTime);
+                shape.transform.position, button.transform.position, 50 * Time.deltaTime);
 
             yield return null;
         }
 
-        shape.transform.position = button.transform.position + shape.ShapeOffset;
+        shape.transform.position = button.transform.position;
         button = null;
         shape = null;
         isCoroutineActive = false;
@@ -128,9 +127,18 @@ public class TouchController : MonoBehaviour
 
             if (touch.phase == TouchPhase.Moved)
             {
-                if (button != null)
+                if (button && shape)
                 {
-                    Board.Instance.ShadowShapePos(shape, true);
+                    if (Board.Instance.IsValidPosition(shape.transform))
+                    {
+
+                        Board.Instance.ShadowShapePos(shape, true);
+                    }
+                    else
+                    {
+
+                        Board.Instance.ShadowShapePos(shape, false);
+                    }
                 }
             }
         }
