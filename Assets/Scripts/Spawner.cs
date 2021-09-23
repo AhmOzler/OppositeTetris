@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] Shape[] shapeTypes;
     [SerializeField] GameObject bottomSquare;
+    [SerializeField] GameObject bonusSquare;
     [SerializeField] Transform[] buttons;
     int storedShapeCount;
     public int StoredShapeCount {
@@ -29,6 +30,8 @@ public class Spawner : MonoBehaviour
 
     public void DestroyShapeInButtons() {
 
+        if(UIController.Instance.ChangeButtonCount <= 0) return;
+        
         for (int i = 0; i < buttons.Length; i++)
         {
             Button button = buttons[i].GetComponent<Button>();
@@ -57,7 +60,7 @@ public class Spawner : MonoBehaviour
     }
 
 
-    public IEnumerator SpawnRandomSqrAtBottom(int minValue, int maxValue)
+    public IEnumerator SpawnRandomSqrAtBottom(int minValue, int maxValue, int percent)
     {
         if (storedShapeCount == 0) {
             
@@ -73,11 +76,23 @@ public class Spawner : MonoBehaviour
 
             for (int r = 0; r < sqrDigits.Count; r++)
             {
-                var sqr = Instantiate(bottomSquare, new Vector2(sqrDigits.ToList()[r], transform.position.y), Quaternion.identity, bottomShape.transform);
+                Vector2 randomXpos = new Vector2(sqrDigits.ToList()[r], transform.position.y);
+
+                var sqr = Instantiate(Sqr(percent), randomXpos, Quaternion.identity, bottomShape.transform);
                 sqr.GetComponent<Animator>().Play("TeleportAnim");
                 board.StoreShapeInGrid(bottomShape.transform);
             }           
         }        
+    }
+
+
+    GameObject Sqr(int percent) {
+
+        if(Random.Range(0, 100) < percent) {
+            return bonusSquare;
+        }
+
+        return bottomSquare;
     }
 
 

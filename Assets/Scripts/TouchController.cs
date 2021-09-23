@@ -8,6 +8,7 @@ public class TouchController : MonoBehaviour
     [SerializeField] [Range(0, 15)] int minSpawnNumber = 6;
     [SerializeField] [Range(0, 15)] int maxSpawnNumber = 6;
     [SerializeField] [Range(10, 100)] int difficulty = 20;
+    [SerializeField] [Range(0, 100)] int changeSqrPercentage = 1;
     Collider2D button;
     Shape shape = null;
     Spawner spawner;  
@@ -87,10 +88,8 @@ public class TouchController : MonoBehaviour
                 UIController.Instance.ScoreText(Board.Instance.DestroyedRowsCount);
                 UIController.Instance.LevelText(difficulty);
 
-                spawnRoutine = Board.Instance.ShiftAllRowsDown();
-                shiftRoutine = spawner.SpawnRandomSqrAtBottom(minSpawnNumber, maxSpawnNumber);
-                StartCoroutine(shiftRoutine);
-                StartCoroutine(spawnRoutine);                                             
+                shiftRoutine = spawner.SpawnRandomSqrAtBottom(minSpawnNumber, maxSpawnNumber, changeSqrPercentage);
+                StartCoroutine(shiftRoutine);                                            
             }
             else
             {

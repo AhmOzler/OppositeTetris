@@ -154,7 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpawnNumber: 4
   maxSpawnNumber: 7
-  difficulty: 50
+  difficulty: 25
+  changeSqrPercentage: 10
 --- !u!4 &23552762
 Transform:
   m_ObjectHideFlags: 0
@@ -668,7 +669,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'DestroyedRows: 1'
+  m_text: 'DestroyedRows: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 557d56d9b1082d342b27519d14d8e5d7, type: 2}
   m_sharedMaterial: {fileID: -3483546009276755500, guid: 557d56d9b1082d342b27519d14d8e5d7, type: 2}
@@ -802,7 +803,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LEVEL 0
+  m_text: 'LEVEL: 1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 557d56d9b1082d342b27519d14d8e5d7, type: 2}
   m_sharedMaterial: {fileID: -3483546009276755500, guid: 557d56d9b1082d342b27519d14d8e5d7, type: 2}
@@ -1124,7 +1125,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5
+  m_text: '2
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 557d56d9b1082d342b27519d14d8e5d7, type: 2}
   m_sharedMaterial: {fileID: -3483546009276755500, guid: 557d56d9b1082d342b27519d14d8e5d7, type: 2}
@@ -1289,9 +1292,9 @@ MonoBehaviour:
   - {fileID: 261482338867328924, guid: 6e40da661246e36409dcb532cd34a366, type: 3}
   - {fileID: 261482338867328924, guid: b21b5362ed7537e409944f6e165af51c, type: 3}
   - {fileID: 261482338867328924, guid: 620559ece6a587d4b9d0d1152ebe6f3b, type: 3}
-  - {fileID: 261482338867328924, guid: 141b075aedc04df408e743fc4b734529, type: 3}
   - {fileID: 261482338867328924, guid: d53ebd9320d53a2499ec55b8ee73c8b2, type: 3}
   bottomSquare: {fileID: 4590108919012438576, guid: 72fdea65f6bdc1148aa294e1daa32fde, type: 3}
+  bonusSquare: {fileID: 8698156466105506764, guid: 0991be730e71a6640a8c5e63185ef792, type: 3}
   buttons:
   - {fileID: 1368498382}
   - {fileID: 1925520943}
@@ -1403,6 +1406,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1232475854}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: DecreaseChangeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

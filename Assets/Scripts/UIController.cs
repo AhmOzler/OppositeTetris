@@ -18,6 +18,8 @@ public class UIController : MonoBehaviour
     int level = 1;
     public int Level => level;
     int score = 0;
+    int changeButtonCount = 2;
+    public int ChangeButtonCount => changeButtonCount;
 
     private void Awake() {
         
@@ -34,6 +36,7 @@ public class UIController : MonoBehaviour
 
     private void Start() {
         ScoreText();
+        changeButtonText.text = changeButtonCount.ToString();
     }
 
 
@@ -50,6 +53,22 @@ public class UIController : MonoBehaviour
             level ++;
     
         levelText.text = "LEVEL: " + level.ToString();
+    }
+
+
+    public void IncreaseChangeButton() {
+        
+        changeButtonCount ++;
+        changeButtonText.text = changeButtonCount.ToString();
+    }
+
+
+    public void DecreaseChangeButton() {
+
+        if(changeButtonCount <= 0) return;
+
+        changeButtonCount --;
+        changeButtonText.text = changeButtonCount.ToString();
     }
 
 

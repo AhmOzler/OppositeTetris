@@ -95,6 +95,41 @@ public class Board : MonoBehaviour
         return true;
     } 
 
+
+    private void DestroyRow(int y)
+    {
+        for (int x = 0; x < boardWidth; x++)
+        {
+            if (gridArray[x, y].gameObject.CompareTag("ChangeSqr"))
+                UIController.Instance.IncreaseChangeButton();
+
+            gridArray[x, y].GetComponent<Animator>().Play("DestroyAnim");
+            float animLength = gridArray[x, y].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length;
+
+            Destroy(gridArray[x, y].gameObject, animLength);
+            gridArray[x, y] = null;
+        }
+    }
+
+
+    public IEnumerator ShiftAllRowsDown(int y) {
+
+        yield return new WaitForSeconds(1);
+
+        for (int i = y; i < boardHeight; i++)
+        {
+            for (int x = 0; x < boardWidth; x++)
+            {
+                if (gridArray[x, i] != null)
+                {
+                    gridArray[x, i].position += Vector3.down;
+                    gridArray[x, i - 1] = gridArray[x, i];
+                    gridArray[x, i] = null;
+                }
+            }
+        }                 
+    }
+
     
     public void DestroyAllRows() {
 
@@ -104,41 +139,14 @@ public class Board : MonoBehaviour
         {
             if (IsGridsFullInRow(y))
             {
-                destroyedRowsCount ++; // ANCHOR Yok edilen satır sayısı.
-                topRowIndex = y; // ANCHOR En üstteki full satırın kaçıncı stünda olduğu.
-
-                for (int x = 0; x < boardWidth; x++)
-                {
-                    gridArray[x, y].GetComponent<Animator>().Play("DestroyAnim");
-                    float animLength = gridArray[x, y].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length;
-                    Destroy(gridArray[x, y].gameObject, animLength);
-                    gridArray[x, y] = null;
-                }
+                destroyedRowsCount++; // ANCHOR Yok edilen satır sayısı.
+                DestroyRow(y);
+                StartCoroutine(ShiftAllRowsDown(y));
+                y--;
             }
         }       
     }
-
-
-    public IEnumerator ShiftAllRowsDown() {
-
-        if(destroyedRowsCount <= 0) yield break;
-
-        yield return new WaitForSeconds(1);
-
-        for (int i = topRowIndex; i < boardHeight; i++)
-        {
-            for (int x = 0; x < boardWidth; x++)
-            {
-                if (gridArray[x, i] != null)
-                {
-                    gridArray[x, i].position += Vector3.down * destroyedRowsCount;
-                    gridArray[x, i - destroyedRowsCount] = gridArray[x, i];
-                    gridArray[x, i] = null;
-                }
-            }
-        }                 
-    }
-
+    
 
     public void ShiftRowUp() {
 
