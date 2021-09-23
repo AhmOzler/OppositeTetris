@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
     public static UIController Instance => instance;
 
     [SerializeField] TextMeshProUGUI levelText;
+    
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI changeButtonText;
     Animator gameoverAnim;
