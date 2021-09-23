@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-
 public class Board : MonoBehaviour
 {
     private static Board instance;
     public static Board Instance => instance;
-
     [SerializeField] GameObject grid;
     [SerializeField] Color gridColor = Color.white;
     [SerializeField] [Range(0, 15)] int boardWidth;
@@ -18,17 +16,9 @@ public class Board : MonoBehaviour
     [SerializeField] Color shadowShapeColor = new Color(1, 1, 1, 0.2f);
 
     Transform[,] gridArray;
-    [SerializeField] int destroyedRowsCount;
+    int destroyedRowsCount;
     public int DestroyedRowsCount => destroyedRowsCount;
-    [SerializeField] int topRowIndex;
-    /* bool checkGrid = false;
-    public bool CheckGrid {
-        get { return checkGrid; }
-        set {
-            if(checkGrid != value)
-                checkGrid = value;
-        }
-    } */
+    int topRowIndex;
     Shape shadowShape; 
 
     bool isHitBottom = false;
@@ -46,7 +36,13 @@ public class Board : MonoBehaviour
     }
 
 
-    public void GridLineUp()
+    private void Start() {
+
+        GridLineUp();
+    }
+
+
+    void GridLineUp()
     {   
         for (int y = 0; y < boardHeight; y++)
         {
@@ -160,25 +156,6 @@ public class Board : MonoBehaviour
             }
         }
     }
-
-
-    /* public IEnumerator DestroyAllRows() {
-
-        //gridCheckList.Clear();
-
-        for (int y = 0; y < boardHeight; y++)
-        {
-            //CheckGrid = IsThereFullRow(IsGridsFullInRow(y));
-            
-            if (IsGridsFullInRow(y)) {
-
-                DestroyRow(y);
-                yield return new WaitForSeconds(1f);
-                ShiftRowDown(y);
-                y--; // ANCHOR y'nin sabit yerde kalıp üstteki sütunları aşağı çekmesi gerektiği için yapıldı.
-            }
-        }       
-    } */
 
 
     public bool IsOverLimit() {

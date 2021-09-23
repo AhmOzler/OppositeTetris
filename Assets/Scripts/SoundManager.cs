@@ -5,7 +5,6 @@ using System;
 
 public class SoundManager : MonoBehaviour
 {
-
     [System.Serializable]
     public class SoundFx 
     {

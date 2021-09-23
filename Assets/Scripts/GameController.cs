@@ -24,8 +24,7 @@ public class GameController : MonoBehaviour
 
     private void Start() {
 
-        SceneController.Instance.GetGameOverSceneAnim("OpenGameoverWall");
-        activeShape = spawner.SpawnShape();
+       // activeShape = spawner.SpawnShape();
     }
 
 
@@ -59,14 +58,13 @@ public class GameController : MonoBehaviour
                 {                    
                     activeShape.MoveUp();
                     Board.Instance.StoreShapeInGrid(activeShape.transform);
-                    activeShape = spawner.SpawnShape();
+                   // activeShape = spawner.SpawnShape();
                     
                     //Board.Instance.DestroyAllRows();
                 }
                 else
                 {
                     activeShape = null;
-                    SceneController.Instance.GetGameOverSceneAnim("CloseGameoverWall");
                 }
             }
         }

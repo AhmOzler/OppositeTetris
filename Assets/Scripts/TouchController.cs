@@ -4,7 +4,10 @@ using UnityEngine;
 
 
 public class TouchController : MonoBehaviour
-{
+{    
+    [SerializeField] [Range(0, 15)] int minSpawnNumber = 6;
+    [SerializeField] [Range(0, 15)] int maxSpawnNumber = 6;
+    [SerializeField] [Range(10, 100)] int difficulty = 20;
     Collider2D button;
     Shape shape = null;
     Spawner spawner;  
@@ -43,7 +46,7 @@ public class TouchController : MonoBehaviour
             button = Physics2D.OverlapPoint(touchPos);
 
             if (button) 
-                shape = button.GetComponent<StoredShape>().Shape;
+                shape = button.GetComponent<Button>().StoredShape;
 
             if (shape != null)
             {              
@@ -78,11 +81,14 @@ public class TouchController : MonoBehaviour
                 Board.Instance.StoreShapeInGrid(shape.transform);
                 Board.Instance.DestroyAllRows();
 
-                button.GetComponent<StoredShape>().Shape = null;
+                button.GetComponent<Button>().StoredShape = null;
                 shape = null;
 
+                UIController.Instance.ScoreText(Board.Instance.DestroyedRowsCount);
+                UIController.Instance.LevelText(difficulty);
+
                 spawnRoutine = Board.Instance.ShiftAllRowsDown();
-                shiftRoutine = spawner.SpawnRandomSqrAtBottom();
+                shiftRoutine = spawner.SpawnRandomSqrAtBottom(minSpawnNumber, maxSpawnNumber);
                 StartCoroutine(shiftRoutine);
                 StartCoroutine(spawnRoutine);                                             
             }

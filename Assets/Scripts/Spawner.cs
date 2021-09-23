@@ -6,54 +6,50 @@ using System.Linq;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] Shape[] shapeTypes;
-    [SerializeField] GameObject square;
-    [SerializeField] [Range(0, 15)] int sqrRowNumber = 6;
-    [SerializeField] [Range(0, 5)] int sqrColumnNumber = 1;
-
+    [SerializeField] GameObject bottomSquare;
     [SerializeField] Transform[] buttons;
-    public Transform[] Buttons => buttons;
+    int storedShapeCount;
+    public int StoredShapeCount {
+        get { return storedShapeCount; }       
+        set {             
+            storedShapeCount += value; 
 
-
-    private static Spawner instance;
-    public static Spawner Instance => instance;
-
-
-    private void Start() {
-
-        SpawnShapeInButtons();
-        Board.Instance.GridLineUp();
-    }
+            if(storedShapeCount >= 5 - UIController.Instance.Level) {
+                storedShapeCount = 0;  
+            }                        
+        }
+    } 
     
 
-    public Shape SpawnShape() {
+    public Shape SpawnShape(Transform transform) {
 
-        return Instantiate(shapeTypes[Random.Range(0, shapeTypes.Length)], transform.position, Quaternion.identity) as Shape;
+        return Instantiate(shapeTypes[Random.Range(0, shapeTypes.Length)], transform.position, Quaternion.identity, transform) as Shape;
     }
 
 
-    public void SpawnShapeInButtons() {
+    public void DestroyShapeInButtons() {
 
         for (int i = 0; i < buttons.Length; i++)
         {
-            StoredShape storedShape = buttons[i].GetComponent<StoredShape>();
-            
-            storedShape.Shape = SpawnShape();
-            storedShape.Shape.GetShapeAnimation("SpawnAnim");
-            storedShape.Shape.transform.position = buttons[i].position;
-            storedShape.Shape.transform.localScale = new Vector2(.5f, .5f);
-            storedShape.Shape.transform.SetParent(buttons[i]);
+            Button button = buttons[i].GetComponent<Button>();
+
+            if(!button.StoredShape) continue;
+
+            Destroy(button.StoredShape.gameObject);
+            button.StoredShape = null;
         }
     }
 
 
-    private List<int> DigitList(Board board)
+    private List<int> DigitList(int minValue, int maxValue)
     {
         List<int> sqrDigits = new List<int>();
         sqrDigits.Clear();
+        int sqrRowNumber = Random.Range(minValue, maxValue + 1);
 
         for (int x = 0; x < sqrRowNumber; x++)
         {
-            int randomPosX = (int)Random.Range(0, board.BoardWidth);
+            int randomPosX = (int)Random.Range(0, Board.Instance.BoardWidth);
             sqrDigits.Add(randomPosX);
         }
 
@@ -61,29 +57,26 @@ public class Spawner : MonoBehaviour
     }
 
 
-    public IEnumerator SpawnRandomSqrAtBottom()
+    public IEnumerator SpawnRandomSqrAtBottom(int minValue, int maxValue)
     {
-        if (AreAllButtonsNull()) {
-
+        if (storedShapeCount == 0) {
+            
             GameObject bottomShape = new GameObject("BottomShape");
             Board board = Board.Instance;
 
-            var sqrDigits = DigitList(board);
+            if(board.DestroyedRowsCount > 0) yield return new WaitForSeconds(1f);
 
-            for (int i = 0; i < sqrColumnNumber; i++)
-            {
-                if(board.DestroyedRowsCount > 0) yield return new WaitForSeconds(1f);
+            var sqrDigits = DigitList(minValue, maxValue);
                 
-                yield return new WaitForSeconds(0.2f);
-                board.ShiftRowUp();
+            yield return new WaitForSeconds(0.2f);
+            board.ShiftRowUp();
 
-                for (int r = 0; r < sqrDigits.Count; r++)
-                {
-                    var sqr = Instantiate(square, new Vector2(sqrDigits.ToList()[r], transform.position.y), Quaternion.identity, bottomShape.transform);
-                    sqr.GetComponent<Animator>().Play("TeleportAnim");
-                    board.StoreShapeInGrid(bottomShape.transform);
-                }
-            }
+            for (int r = 0; r < sqrDigits.Count; r++)
+            {
+                var sqr = Instantiate(bottomSquare, new Vector2(sqrDigits.ToList()[r], transform.position.y), Quaternion.identity, bottomShape.transform);
+                sqr.GetComponent<Animator>().Play("TeleportAnim");
+                board.StoreShapeInGrid(bottomShape.transform);
+            }           
         }        
     }
 
@@ -92,27 +85,9 @@ public class Spawner : MonoBehaviour
 
         foreach (Transform button in buttons)
         {
-            if(!button.GetComponent<StoredShape>().Shape) continue;
+            if(!button.GetComponent<Button>().StoredShape) continue;
 
-            button.GetComponent<StoredShape>().Shape.RotateRight();
+            button.GetComponent<Button>().StoredShape.RotateRight();
         }
-    }
-
-
-    private void Update() {
-
-        if (AreAllButtonsNull()) {
-
-            SpawnShapeInButtons();           
-        }
-    }
-
-
-    bool AreAllButtonsNull()
-    {
-        return !buttons[0].GetComponent<StoredShape>().Shape &&
-            !buttons[1].GetComponent<StoredShape>().Shape &&
-            !buttons[2].GetComponent<StoredShape>().Shape &&
-            !buttons[3].GetComponent<StoredShape>().Shape;
     }
 }

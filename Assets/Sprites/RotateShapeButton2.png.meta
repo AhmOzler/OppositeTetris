@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ec8144fb9ee21b248a1fae351d795d60
+guid: 611641f9512d7b24f8186fc1dd71adcf
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -137,8 +137,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 168
+        y: 50
+        width: 120
         height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -157,9 +157,9 @@ TextureImporter:
       name: RotateShapeButton2_1
       rect:
         serializedVersion: 2
-        x: 169
+        x: 0
         y: 0
-        width: 168
+        width: 120
         height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
