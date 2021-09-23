@@ -1876,7 +1876,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59f3ea0272b1b944be3ce52c24d7ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 2f597a0126e6a4b419c445cfd8ef7e29, type: 3}
+    volume: 0.5
+    pitch: 0
+    loop: 0
+    playOnAwake: 1
+    playOneTime: 0
+  - audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 25156e30641959b438a6e3cfe59ed8f4, type: 3}
+    volume: 0.5
+    pitch: 0
+    loop: 0
+    playOnAwake: 0
+    playOneTime: 0
+  - audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 6fe82bc7e4a54484db547aeadfad8e2d, type: 3}
+    volume: 0.5
+    pitch: 0
+    loop: 0
+    playOnAwake: 0
+    playOneTime: 0
+  - audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 407a31c25fe2fa0408d85d004bccca6b, type: 3}
+    volume: 0.5
+    pitch: 0
+    loop: 0
+    playOnAwake: 0
+    playOneTime: 0
 --- !u!4 &2057257025
 Transform:
   m_ObjectHideFlags: 0
@@ -1885,7 +1913,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057257023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.96, y: 4.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

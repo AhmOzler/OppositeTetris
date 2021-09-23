@@ -82,6 +82,7 @@ public class TouchController : MonoBehaviour
                 Board.Instance.StoreShapeInGrid(shape.transform);
                 Board.Instance.DestroyAllRows();
 
+                SoundManager.Instance.Play("ValidPosition");
                 button.GetComponent<Button>().StoredShape = null;
                 shape = null;
 
@@ -95,6 +96,7 @@ public class TouchController : MonoBehaviour
             {
                 shape.SetPivotInButton();
                 shape.transform.localScale = new Vector2(.5f, .5f);
+                SoundManager.Instance.Play("InvalidPosition");
                 StartCoroutine(TurntoButtonPos());
                 Board.Instance.ResetShadowShape(shape.transform);  //TODO Hata             
             }      

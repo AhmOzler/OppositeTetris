@@ -10,8 +10,8 @@ public class SoundManager : MonoBehaviour
     {
         [HideInInspector] public AudioSource audioSource;
         public AudioClip audioClip;
-        [Range(0, 1)] public float volume;
-        [Range(-3, 3)] public float pitch;
+        [Range(0, 1)] public float volume = 1;
+        [Range(-3, 3)] public float pitch = 1;
         public bool loop;
         public bool playOnAwake;
         public bool playOneTime;
@@ -22,18 +22,41 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] SoundFx[] sounds;
 
-    private void Awake() {
-        
-        if(instance == null)
+    private void Awake()
+    {
+
+        if (instance == null)
             instance = this;
         else
             Destroy(gameObject);
+
+
+        SetAudioSources();
     }
 
-    
+
     private void OnDestroy() {
 
         instance = null;
+    }
+
+
+    private void Start() {
+        SoundManager.Instance.Play("GameStart");
+    }
+
+
+    private void SetAudioSources()
+    {
+        foreach (SoundFx sound in sounds)
+        {
+            sound.audioSource = gameObject.AddComponent<AudioSource>();
+            sound.audioSource.clip = sound.audioClip;
+            sound.audioSource.volume = sound.volume;
+            sound.audioSource.pitch = sound.pitch;
+            sound.audioSource.loop = sound.loop;
+            sound.audioSource.playOnAwake = sound.playOnAwake;
+        }
     }
 
 

@@ -73,7 +73,8 @@ public class Spawner : MonoBehaviour
                 
             yield return new WaitForSeconds(0.2f);
             board.ShiftRowUp();
-
+            SoundManager.Instance.Play("TeleportBricks");
+            
             for (int r = 0; r < sqrDigits.Count; r++)
             {
                 Vector2 randomXpos = new Vector2(sqrDigits.ToList()[r], transform.position.y);
@@ -97,6 +98,8 @@ public class Spawner : MonoBehaviour
 
 
     public void RotateShapesInButton() {
+
+        SoundManager.Instance.Play("ButtonClick");
 
         foreach (Transform button in buttons)
         {

@@ -109,6 +109,8 @@ public class Board : MonoBehaviour
             Destroy(gridArray[x, y].gameObject, animLength);
             gridArray[x, y] = null;
         }
+
+        SoundManager.Instance.Play("DestroyBricks");
     }
 
 

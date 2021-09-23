@@ -9,10 +9,10 @@ public class UIController : MonoBehaviour
     private static UIController instance;
     public static UIController Instance => instance;
 
-    [SerializeField] TextMeshProUGUI levelText;
-    
+    [SerializeField] TextMeshProUGUI levelText;   
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI changeButtonText;
+    [SerializeField] GameObject changeButton;
     Animator gameoverAnim;
     string currentState;
     int level = 1;
@@ -37,6 +37,7 @@ public class UIController : MonoBehaviour
     private void Start() {
         ScoreText();
         changeButtonText.text = changeButtonCount.ToString();
+        changeButton.GetComponent<Animator>().SetInteger("PressCount", changeButtonCount);
     }
 
 
@@ -59,6 +60,7 @@ public class UIController : MonoBehaviour
     public void IncreaseChangeButton() {
         
         changeButtonCount ++;
+        SoundManager.Instance.Play("ButtonClick");
         changeButtonText.text = changeButtonCount.ToString();
     }
 
@@ -68,6 +70,8 @@ public class UIController : MonoBehaviour
         if(changeButtonCount <= 0) return;
 
         changeButtonCount --;
+        changeButton.GetComponent<Animator>().SetInteger("PressCount", changeButtonCount);
+        SoundManager.Instance.Play("ButtonClick");
         changeButtonText.text = changeButtonCount.ToString();
     }
 
