@@ -997,6 +997,7 @@ MonoBehaviour:
   levelText: {fileID: 1096857888}
   scoreText: {fileID: 1036591126}
   changeButtonText: {fileID: 1567994373}
+  changeButton: {fileID: 1781606573}
 --- !u!1 &1241862634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,6 +1239,7 @@ MonoBehaviour:
   boardWidth: 9
   boardHeight: 25
   shadowShapeColor: {r: 1, g: 1, b: 1, a: 0.36862746}
+  destroyedRowsCount: 0
 --- !u!4 &1700236437
 Transform:
   m_ObjectHideFlags: 0
@@ -1293,8 +1295,8 @@ MonoBehaviour:
   - {fileID: 261482338867328924, guid: b21b5362ed7537e409944f6e165af51c, type: 3}
   - {fileID: 261482338867328924, guid: 620559ece6a587d4b9d0d1152ebe6f3b, type: 3}
   - {fileID: 261482338867328924, guid: d53ebd9320d53a2499ec55b8ee73c8b2, type: 3}
-  bottomSquare: {fileID: 4590108919012438576, guid: 72fdea65f6bdc1148aa294e1daa32fde, type: 3}
-  bonusSquare: {fileID: 8698156466105506764, guid: 0991be730e71a6640a8c5e63185ef792, type: 3}
+  bottomSquare: {fileID: 7939621484830501172, guid: 72fdea65f6bdc1148aa294e1daa32fde, type: 3}
+  bonusSquare: {fileID: 3155853680210133718, guid: 0991be730e71a6640a8c5e63185ef792, type: 3}
   buttons:
   - {fileID: 1368498382}
   - {fileID: 1925520943}
@@ -1879,29 +1881,43 @@ MonoBehaviour:
   sounds:
   - audioSource: {fileID: 0}
     audioClip: {fileID: 8300000, guid: 2f597a0126e6a4b419c445cfd8ef7e29, type: 3}
-    volume: 0.5
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     playOnAwake: 1
     playOneTime: 0
   - audioSource: {fileID: 0}
     audioClip: {fileID: 8300000, guid: 25156e30641959b438a6e3cfe59ed8f4, type: 3}
-    volume: 0.5
-    pitch: 0
+    volume: 0.35
+    pitch: 1
     loop: 0
     playOnAwake: 0
     playOneTime: 0
   - audioSource: {fileID: 0}
     audioClip: {fileID: 8300000, guid: 6fe82bc7e4a54484db547aeadfad8e2d, type: 3}
     volume: 0.5
-    pitch: 0
+    pitch: 1
     loop: 0
     playOnAwake: 0
     playOneTime: 0
   - audioSource: {fileID: 0}
     audioClip: {fileID: 8300000, guid: 407a31c25fe2fa0408d85d004bccca6b, type: 3}
     volume: 0.5
-    pitch: 0
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    playOneTime: 0
+  - audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: bfcd281879a9c24448dec0c0e5a80bfc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    playOneTime: 1
+  - audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: b9abe4d6805495e469097586c053a7d2, type: 3}
+    volume: 0.75
+    pitch: 1
     loop: 0
     playOnAwake: 0
     playOneTime: 0

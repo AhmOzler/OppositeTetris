@@ -16,7 +16,7 @@ public class Board : MonoBehaviour
     [SerializeField] Color shadowShapeColor = new Color(1, 1, 1, 0.2f);
 
     Transform[,] gridArray;
-    int destroyedRowsCount;
+    [SerializeField] int destroyedRowsCount;
     public int DestroyedRowsCount => destroyedRowsCount;
     int topRowIndex;
     Shape shadowShape; 
@@ -58,13 +58,24 @@ public class Board : MonoBehaviour
 
     public void StoreShapeInGrid(Transform shape)
     {
-        foreach (Transform child in shape)
-        {
-            int childx = (int)Mathf.Round(child.position.x);
-            int childy = (int)Mathf.Round(child.position.y);
+        if(shape.childCount > 0) {
 
-            gridArray[childx, childy] = child;
-            gridArray[childx, childy].GetComponent<SpriteRenderer>().sortingOrder = 1;
+            foreach (Transform child in shape) {
+
+                int childX = (int)Mathf.Round(child.position.x);
+                int childY = (int)Mathf.Round(child.position.y);
+
+                gridArray[childX, childY] = child;
+                gridArray[childX, childY].GetComponent<SpriteRenderer>().sortingOrder = 1;
+            }
+        }
+        else {
+
+            int shapeX = (int)Mathf.Round(shape.position.x);
+            int shapeY = (int)Mathf.Round(shape.position.y);
+
+            gridArray[shapeX, shapeY] = shape;
+            gridArray[shapeX, shapeY].GetComponent<SpriteRenderer>().sortingOrder = 1;
         }
     }
 
@@ -96,36 +107,49 @@ public class Board : MonoBehaviour
     } 
 
 
+    public void SqrSFXandVFX()
+    {
+        destroyedRowsCount = 0;
+
+        for (int y = 0; y < boardHeight; y++)
+        {
+            if(IsGridsFullInRow(y)) 
+            {
+                destroyedRowsCount++; // ANCHOR Yok edilen satır sayısı. 
+
+                for (int x = 0; x < boardWidth; x++)
+                {
+                    if (gridArray[x, y].gameObject.CompareTag("ChangeSqr"))
+                    UIController.Instance.IncreaseChangeButton();
+
+                    gridArray[x, y].GetComponent<Animator>().Play("DestroyAnim");
+                    SoundManager.Instance.Play("DestroyBricks");
+                } 
+            }
+        }             
+    }
+
+
     private void DestroyRow(int y)
     {
         for (int x = 0; x < boardWidth; x++)
         {
-            if (gridArray[x, y].gameObject.CompareTag("ChangeSqr"))
-                UIController.Instance.IncreaseChangeButton();
-
-            gridArray[x, y].GetComponent<Animator>().Play("DestroyAnim");
-            float animLength = gridArray[x, y].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length;
-
-            Destroy(gridArray[x, y].gameObject, animLength);
+            Destroy(gridArray[x, y].gameObject);
             gridArray[x, y] = null;
-        }
-
-        SoundManager.Instance.Play("DestroyBricks");
+        }       
     }
 
 
-    public IEnumerator ShiftAllRowsDown(int y) {
-
-        yield return new WaitForSeconds(1);
+    public void ShiftAllRowsDown(int y) {
 
         for (int i = y; i < boardHeight; i++)
         {
             for (int x = 0; x < boardWidth; x++)
             {
                 if (gridArray[x, i] != null)
-                {
+                {                  
                     gridArray[x, i].position += Vector3.down;
-                    gridArray[x, i - 1] = gridArray[x, i];
+                    gridArray[x, i - 1] = gridArray[x, i];                  
                     gridArray[x, i] = null;
                 }
             }
@@ -133,17 +157,16 @@ public class Board : MonoBehaviour
     }
 
     
-    public void DestroyAllRows() {
+    public IEnumerator DestroyAllRows() {
 
-        destroyedRowsCount = 0;
+        yield return new WaitForSeconds(1);      
 
         for (int y = 0; y < boardHeight; y++)
         {
             if (IsGridsFullInRow(y))
-            {
-                destroyedRowsCount++; // ANCHOR Yok edilen satır sayısı.
+            {                                            
                 DestroyRow(y);
-                StartCoroutine(ShiftAllRowsDown(y));
+                ShiftAllRowsDown(y);
                 y--;
             }
         }       

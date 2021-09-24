@@ -13,8 +13,8 @@ public class TouchController : MonoBehaviour
     Shape shape = null;
     Spawner spawner;  
     bool isCoroutineActive = false;
+    IEnumerator destroyRoutine;
     IEnumerator spawnRoutine;
-    IEnumerator shiftRoutine;
 
 
     private void Awake() {
@@ -80,7 +80,9 @@ public class TouchController : MonoBehaviour
             {
                 Board.Instance.ResetShadowShape(shape.transform);
                 Board.Instance.StoreShapeInGrid(shape.transform);
-                Board.Instance.DestroyAllRows();
+                destroyRoutine = Board.Instance.DestroyAllRows();
+                StartCoroutine(destroyRoutine);
+                Board.Instance.SqrSFXandVFX();
 
                 SoundManager.Instance.Play("ValidPosition");
                 button.GetComponent<Button>().StoredShape = null;
@@ -89,15 +91,15 @@ public class TouchController : MonoBehaviour
                 UIController.Instance.ScoreText(Board.Instance.DestroyedRowsCount);
                 UIController.Instance.LevelText(difficulty);
 
-                shiftRoutine = spawner.SpawnRandomSqrAtBottom(minSpawnNumber, maxSpawnNumber, changeSqrPercentage);
-                StartCoroutine(shiftRoutine);                                            
+                spawnRoutine = spawner.SpawnSqrAtBottom(minSpawnNumber, maxSpawnNumber, changeSqrPercentage);
+                StartCoroutine(spawnRoutine);                                            
             }
             else
             {
                 shape.SetPivotInButton();
                 shape.transform.localScale = new Vector2(.5f, .5f);
                 SoundManager.Instance.Play("InvalidPosition");
-                StartCoroutine(TurntoButtonPos());
+                StartCoroutine("TurntoButtonPos");
                 Board.Instance.ResetShadowShape(shape.transform);  //TODO Hata             
             }      
         }
