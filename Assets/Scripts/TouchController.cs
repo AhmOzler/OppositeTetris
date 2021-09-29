@@ -53,7 +53,6 @@ public class TouchController : MonoBehaviour
             {              
                 shape.transform.localScale = Vector3.one;
                 shape.SetPivotOutButton();
-                Board.Instance.CreateShadowShape(shape);
             }
         }
     }
@@ -78,7 +77,7 @@ public class TouchController : MonoBehaviour
         {
             if (Board.Instance.IsValidPosition(shape.transform))
             {
-                Board.Instance.ResetShadowShape(shape.transform);
+                spawner.ResetShadowShape(shape);
                 Board.Instance.StoreShapeInGrid(shape.transform);
                 destroyRoutine = Board.Instance.DestroyAllRows();
                 StartCoroutine(destroyRoutine);
@@ -95,12 +94,9 @@ public class TouchController : MonoBehaviour
                 StartCoroutine(spawnRoutine);                                            
             }
             else
-            {
-                shape.SetPivotInButton();
-                shape.transform.localScale = new Vector2(.5f, .5f);
-                SoundManager.Instance.Play("InvalidPosition");
+            {              
                 StartCoroutine("TurntoButtonPos");
-                Board.Instance.ResetShadowShape(shape.transform);  //TODO Hata             
+                SoundManager.Instance.Play("InvalidPosition");                           
             }      
         }
     }
@@ -109,6 +105,10 @@ public class TouchController : MonoBehaviour
     public IEnumerator TurntoButtonPos()
     {
         isCoroutineActive = true;
+
+        shape.SetPivotInButton();
+        shape.transform.localScale = new Vector2(.5f, .5f);
+        spawner.ResetShadowShape(shape);
 
         while ((shape.transform.position - button.transform.position).sqrMagnitude > Mathf.Epsilon)
         {
@@ -140,13 +140,11 @@ public class TouchController : MonoBehaviour
                 {
                     if (Board.Instance.IsValidPosition(shape.transform))
                     {
-
-                        Board.Instance.ShadowShapePos(shape, true);
+                        spawner.GetShadowShape(shape, true);
                     }
                     else
                     {
-
-                        Board.Instance.ShadowShapePos(shape, false);
+                        spawner.GetShadowShape(shape, false);
                     }
                 }
             }

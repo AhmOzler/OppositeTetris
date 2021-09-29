@@ -8,7 +8,7 @@ public class UIController : MonoBehaviour
 {
     private static UIController instance;
     public static UIController Instance => instance;
-
+    public RectTransform asdasd;
     [SerializeField] TextMeshProUGUI levelText;   
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI changeButtonText;
@@ -76,7 +76,7 @@ public class UIController : MonoBehaviour
     }
 
 
-    public void OnRestartPressed()
+    public void OnPlayPressed()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
@@ -84,7 +84,7 @@ public class UIController : MonoBehaviour
 
 
     public void GetGameOverSceneAnim(string newState) {
-
+        
         if(currentState == newState) return;
 
         gameoverAnim.Play(newState);

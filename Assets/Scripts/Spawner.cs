@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class Spawner : MonoBehaviour
 {
     [SerializeField] Shape[] shapeTypes;
+    [SerializeField] Transform[] shadowShapeArray;
     [SerializeField] Transform bottomSquare;
     [SerializeField] Transform bonusSquare;
     [SerializeField] Transform[] buttons;
     int storedShapeCount;
+    Transform shadowShape;
     public int StoredShapeCount {
         get { return storedShapeCount; }       
         set {             
@@ -20,11 +23,70 @@ public class Spawner : MonoBehaviour
             }                        
         }
     } 
+
+
+    private void Start() {
+        
+        CreateShadowShapes();
+    }
     
 
     public Shape SpawnShape(Transform transform) {
 
-        return Instantiate(shapeTypes[Random.Range(0, shapeTypes.Length)], transform.position, Quaternion.identity, transform) as Shape;
+        Shape randomShape = shapeTypes[UnityEngine.Random.Range(0, shapeTypes.Length)];
+
+        var shape = Instantiate(randomShape, transform.position, Quaternion.identity, transform) as Shape;
+        shape.name = randomShape.name;
+        return shape;
+    }
+
+    
+    void CreateShadowShapes() {
+
+        Transform shadowShapesHolder = new GameObject("ShadowShapes").transform;
+        shadowShapeArray = new Transform[shapeTypes.Length];
+
+        for (int i = 0; i < shapeTypes.Length; i++)
+        {
+            Shape shadowShape = Instantiate(shapeTypes[i], shadowShapesHolder.position, Quaternion.identity, shadowShapesHolder);
+            shadowShape.gameObject.SetActive(false);
+            shadowShape.name = shapeTypes[i].gameObject.name;
+            shadowShapeArray[i] = shadowShape.transform;
+        }
+
+        foreach (Transform child in shadowShapesHolder)
+        {
+            var renderers = child.GetComponentsInChildren<SpriteRenderer>();
+            child.GetComponent<Shape>().SetPivotOutButton();
+
+            foreach (SpriteRenderer renderer in renderers)
+            {
+                renderer.color = new Color(1, 1, 1, .5f);
+                renderer.sortingOrder = 1;
+            }
+        }
+    }
+
+
+    public void GetShadowShape(Shape shape, bool setActive) {
+
+        shadowShape = Array.Find<Transform>(shadowShapeArray, shadowShape => shadowShape.name == shape.name);
+        
+        int posX = (int) Mathf.Round(shape.transform.position.x);
+        int posY = (int) Mathf.Round(shape.transform.position.y);
+
+        shadowShape.position = new Vector2(posX, posY);
+        shadowShape.rotation = shape.transform.rotation;
+        
+        shadowShape.gameObject.SetActive(setActive);
+    }
+
+    
+    public void ResetShadowShape(Shape shape) {
+
+        shape.transform.position = shadowShape.position;
+        shadowShape.gameObject.SetActive(false);
+        shadowShape.position = Vector3.zero;
     }
 
 
@@ -48,11 +110,11 @@ public class Spawner : MonoBehaviour
     {
         List<int> sqrDigits = new List<int>();
         sqrDigits.Clear();
-        int sqrRowNumber = Random.Range(minValue, maxValue + 1);
+        int sqrRowNumber = UnityEngine.Random.Range(minValue, maxValue + 1);
 
         for (int x = 0; x < sqrRowNumber; x++)
         {
-            int randomPosX = (int)Random.Range(0, Board.Instance.BoardWidth);
+            int randomPosX = (int)UnityEngine.Random.Range(0, Board.Instance.BoardWidth);
             sqrDigits.Add(randomPosX);
         }
 
@@ -64,7 +126,6 @@ public class Spawner : MonoBehaviour
     {
         if (storedShapeCount == 0) {
             
-            //GameObject bottomShape = new GameObject("BottomShape");
             Board board = Board.Instance;
 
             if(board.DestroyedRowsCount > 0) yield return new WaitForSeconds(1f);
@@ -89,7 +150,7 @@ public class Spawner : MonoBehaviour
 
     Transform Sqr(int percent) {
 
-        if(Random.Range(0, 100) < percent) {
+        if(UnityEngine.Random.Range(0, 100) < percent) {
             return bonusSquare;
         }
 

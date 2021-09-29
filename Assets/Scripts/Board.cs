@@ -257,7 +257,7 @@ public class Board : MonoBehaviour
 
     public void CreateShadowShapeBottom(Shape shape) {
 
-        CreateShadowShape(shape);
+        //CreateShadowShape(shape);
         
         isHitBottom = false;   
         
