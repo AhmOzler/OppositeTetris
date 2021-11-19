@@ -4,20 +4,8 @@ using UnityEngine;
 
 public class Shape : MonoBehaviour
 {
-    [SerializeField] [Range(0, 1)] float dropInterval = 0.2f;
     [SerializeField] Vector3 shapeOffset;
     public Vector3 ShapeOffset => shapeOffset;
-
-    [SerializeField] bool moveDownOn = false;
-    public bool MoveDownOn {
-        get { return moveDownOn; }
-        set {
-            if(moveDownOn != value)
-                moveDownOn = value;
-        }
-    }
-
-    float timeToDrop = 0;
     Spawner spawner;
     Animator[] animators;
 
@@ -47,13 +35,13 @@ public class Shape : MonoBehaviour
     }
 
 
-    public void RotateRight() {
+    public void RotateRight(int angle) {
 
-        transform.Rotate(0, 0, -90);
+        transform.Rotate(0, 0, angle);
         
         foreach (Transform child in transform)
         {
-            child.Rotate(0, 0, 90);
+            child.rotation = Quaternion.identity;
         }
     }
 
@@ -85,24 +73,13 @@ public class Shape : MonoBehaviour
     }
     
 
-    /* private void Update() {
+    private void Update() {
 
-        if(!moveDownOn) return;
+        if(gameObject.CompareTag("ShadowShape")) {
 
-        if (Time.time >= timeToDrop)
-        {
-            timeToDrop = Time.time + dropInterval;
-
-            MoveDown();
-
-            if (!Board.Instance.IsValidPosition(transform))
-            {
-                if (!Board.Instance.IsOverLimit())
-                {
-                    MoveUp();
-                    Board.Instance.StoreShapeInGrid(transform);
-                }
+            if(!Board.Instance.IsValidPosition(transform)) {
+                MoveDown();
             }
-        }
-    } */
+        }       
+    }
 }

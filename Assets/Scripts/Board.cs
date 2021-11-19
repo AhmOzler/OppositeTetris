@@ -19,8 +19,9 @@ public class Board : MonoBehaviour
     [SerializeField] int destroyedRowsCount;
     public int DestroyedRowsCount => destroyedRowsCount;
     int topRowIndex;
-    Shape shadowShape; 
-
+    Shape shadowShape;
+    [SerializeField] bool isAnimPlaying = false;
+    public bool IsAnimPlaying => isAnimPlaying;
     bool isHitBottom = false;
 
     private void Awake() {
@@ -31,20 +32,20 @@ public class Board : MonoBehaviour
         }          
         else
             instance = this as Board;
-
-        gridArray = new Transform[boardWidth, boardHeight];
+        
     }
 
 
     private void Start() {
 
+        gridArray = new Transform[boardWidth, boardHeight];
         GridLineUp();
     }
 
 
     void GridLineUp()
     {   
-        for (int y = 0; y < boardHeight; y++)
+        for (int y = 5; y < boardHeight; y++)
         {
             for (int x = 0; x < boardWidth; x++)
             {
@@ -56,26 +57,33 @@ public class Board : MonoBehaviour
     }
 
 
+    private void RoundPos(Transform child, out int childx, out int childy)
+    {
+        childx = (int) Mathf.Round(child.position.x);
+        childy = (int) Mathf.Round(child.position.y);
+    }
+
+
     public void StoreShapeInGrid(Transform shape)
     {
-        if(shape.childCount > 0) {
+        if(shape.childCount > 0) { //ANCHOR shape objesi sqrlarım parenti ise(Shapeler için).
 
             foreach (Transform child in shape) {
 
-                int childX = (int)Mathf.Round(child.position.x);
-                int childY = (int)Mathf.Round(child.position.y);
+                int childx, childy;
+                RoundPos(child, out childx, out childy);
 
-                gridArray[childX, childY] = child;
-                gridArray[childX, childY].GetComponent<SpriteRenderer>().sortingOrder = 1;
+                gridArray[childx, childy] = child;
+                gridArray[childx, childy].GetComponent<SpriteRenderer>().sortingOrder = 9;
             }
         }
-        else {
+        else { //ANCHOR sqrların parenti yok ise(TopSqr için).
 
             int shapeX = (int)Mathf.Round(shape.position.x);
             int shapeY = (int)Mathf.Round(shape.position.y);
 
             gridArray[shapeX, shapeY] = shape;
-            gridArray[shapeX, shapeY].GetComponent<SpriteRenderer>().sortingOrder = 1;
+            gridArray[shapeX, shapeY].GetComponent<SpriteRenderer>().sortingOrder = 9;
         }
     }
 
@@ -84,12 +92,26 @@ public class Board : MonoBehaviour
 
         foreach (Transform child in shape)
         {
-            int childx = (int) Mathf.Round(child.position.x);
-            int childy = (int) Mathf.Round(child.position.y);
+            int childx, childy;
+            RoundPos(child, out childx, out childy);
 
-            if (childx >= boardWidth || childx < 0 || childy < 0) return false;
+            if (childx < 0 || childx >= boardWidth || childy < 0 || childy > 18) return false;
 
             if (gridArray[childx, childy] != null) return false;
+        }
+
+        return true;
+    }
+
+
+    public bool IsValidPosAreaShape(Transform shape) {
+
+        foreach (Transform child in shape)
+        {
+            int childx, childy;
+            RoundPos(child, out childx, out childy);
+
+            if (childx < 0 || childx >= boardWidth || childy < 0 || childy > 4) return false;
         }
 
         return true;
@@ -115,7 +137,7 @@ public class Board : MonoBehaviour
         {
             if(IsGridsFullInRow(y)) 
             {
-                destroyedRowsCount++; // ANCHOR Yok edilen satır sayısı. 
+                destroyedRowsCount++; // ANCHOR Yok edilen satır sayısı.
 
                 for (int x = 0; x < boardWidth; x++)
                 {
@@ -140,16 +162,16 @@ public class Board : MonoBehaviour
     }
 
 
-    public void ShiftAllRowsDown(int y) {
+    public void ShiftAllRowsUp(int y) {
 
-        for (int i = y; i < boardHeight; i++)
+        for (int i = y; i > 0; i--)
         {
             for (int x = 0; x < boardWidth; x++)
             {
                 if (gridArray[x, i] != null)
                 {                  
-                    gridArray[x, i].position += Vector3.down;
-                    gridArray[x, i - 1] = gridArray[x, i];                  
+                    gridArray[x, i].position += Vector3.up;
+                    gridArray[x, i + 1] = gridArray[x, i];                  
                     gridArray[x, i] = null;
                 }
             }
@@ -159,31 +181,34 @@ public class Board : MonoBehaviour
     
     public IEnumerator DestroyAllRows() {
 
-        yield return new WaitForSeconds(1);      
+        isAnimPlaying = true;
+
+        yield return new WaitForSeconds(0.5f);      
 
         for (int y = 0; y < boardHeight; y++)
         {
             if (IsGridsFullInRow(y))
             {                                            
                 DestroyRow(y);
-                ShiftAllRowsDown(y);
+                ShiftAllRowsUp(y);
                 y--;
             }
-        }       
+        }  
+
+        isAnimPlaying = false; 
     }
     
 
-    public void ShiftRowUp() {
+    public void ShiftRowDown() {
 
-        for (int y = boardHeight - 2; y >= 0; y--)
+        for (int y = 0; y < boardHeight; y++)
         {
             for (int x = 0; x < boardWidth; x++)
             {                
                 if(gridArray[x, y] != null) {
                     
-                    gridArray[x, y].position += Vector3.up;
-                    gridArray[x, y].GetComponent<Animator>().Play("TeleportAnim");
-                    gridArray[x, y + 1] = gridArray[x, y];
+                    gridArray[x, y].position += Vector3.down;
+                    gridArray[x, y - 1] = gridArray[x, y];
                     gridArray[x, y] = null;
                 }
             }
@@ -195,81 +220,9 @@ public class Board : MonoBehaviour
 
         for (int x = 0; x < boardWidth; x++)
         {
-            if (gridArray[x, 23] != null) return true;
+            if (gridArray[x, 5] != null) return true;
         }
         
         return false;
-    }
-
-
-    public void CreateShadowShape(Shape shape) {
-
-        if(shadowShape) return;
-
-        shadowShape = Instantiate(shape, shape.transform.position, shape.transform.rotation) as Shape;
-        shadowShape.name = "ShadowOf" + shape.name;
-
-        var renderers = shadowShape.GetComponentsInChildren<SpriteRenderer>();
-
-        foreach (SpriteRenderer renderer in renderers)
-        {
-            renderer.color = shadowShapeColor;
-            renderer.sortingOrder = 0;
-        }
-    }
-
-
-    public void ResetShadowShape(Transform shape)
-    {
-        if (shadowShape && shape)
-        {
-            shape.transform.position = shadowShape.transform.position;
-            Destroy(shadowShape.gameObject);
-        }
-    }
-
-
-    public void ShadowShapePos(Shape shape, bool setActive)
-    {
-        if(!shadowShape) return;
-
-        int posX = (int) Mathf.Round(shape.transform.position.x);
-        int posY = (int) Mathf.Round(shape.transform.position.y);
-
-        shadowShape.transform.position = new Vector2(posX, posY);
-        shadowShape.transform.rotation = shape.transform.rotation;
-        shadowShape.gameObject.SetActive(setActive);
-
-        /* isHitBottom = false;
-
-        while (!isHitBottom)
-        {
-            shadowShape.MoveDown();
-
-            if (!IsValidPosition(shadowShape.transform))
-            {
-                isHitBottom = true;
-                shadowShape.MoveUp();
-            }
-        } */
-    }
-
-
-    public void CreateShadowShapeBottom(Shape shape) {
-
-        //CreateShadowShape(shape);
-        
-        isHitBottom = false;   
-        
-        while(!isHitBottom) {
-
-            shadowShape.MoveDown();
-
-            if(!IsValidPosition(shadowShape.transform)) {
-
-                isHitBottom = true;
-                shadowShape.MoveUp();
-            }
-        }
     }
 }

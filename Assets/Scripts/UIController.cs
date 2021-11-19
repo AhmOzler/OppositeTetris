@@ -8,8 +8,7 @@ public class UIController : MonoBehaviour
 {
     private static UIController instance;
     public static UIController Instance => instance;
-    public RectTransform asdasd;
-    [SerializeField] TextMeshProUGUI levelText;   
+    [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI changeButtonText;
     [SerializeField] GameObject changeButton;
@@ -21,20 +20,28 @@ public class UIController : MonoBehaviour
     int changeButtonCount = 2;
     public int ChangeButtonCount => changeButtonCount;
 
+    private int HighScore
+    {
+        get { return PlayerPrefs.GetInt("HighScore"); }
+        set { PlayerPrefs.SetInt("HighScore", value); }
+    }
+
+
     private void Awake() {
         
         gameoverAnim = GetComponent<Animator>();
         
         if(instance == null)
             instance = this;
-        else {      
+        else {
             instance = null;
             Destroy(gameObject);
-        }           
+        }
     }
 
 
     private void Start() {
+
         ScoreText();
         changeButtonText.text = changeButtonCount.ToString();
         changeButton.GetComponent<Animator>().SetInteger("PressCount", changeButtonCount);
@@ -44,6 +51,10 @@ public class UIController : MonoBehaviour
     public void ScoreText(int value = 0) {
         
         score += value;
+
+        if(score > HighScore)
+            HighScore = score;
+
         scoreText.text = "DestroyedRows: " + score.ToString();
     }
 
@@ -76,7 +87,7 @@ public class UIController : MonoBehaviour
     }
 
 
-    public void OnPlayPressed()
+    public void OnRestartPressed()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
@@ -84,11 +95,10 @@ public class UIController : MonoBehaviour
 
 
     public void GetGameOverSceneAnim(string newState) {
-        
+
         if(currentState == newState) return;
 
         gameoverAnim.Play(newState);
         currentState = newState;
-    }  
-     
+    }
 }

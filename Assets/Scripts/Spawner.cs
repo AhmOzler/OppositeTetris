@@ -6,91 +6,41 @@ using System;
 
 public class Spawner : MonoBehaviour
 {
+    [SerializeField] [Range(1, 8)] int sqrDensity = 7;
+    [SerializeField] [Range(5, 15)] float spawnSpeed = 10;
+    [SerializeField] [Range(0, 100)] int changeSqrPercentage = 1;
     [SerializeField] Shape[] shapeTypes;
-    [SerializeField] Transform[] shadowShapeArray;
-    [SerializeField] Transform bottomSquare;
+    public Shape[] ShapeTypes => shapeTypes;
+    [SerializeField] Transform topSquare;
     [SerializeField] Transform bonusSquare;
     [SerializeField] Transform[] buttons;
-    int storedShapeCount;
-    Transform shadowShape;
-    public int StoredShapeCount {
-        get { return storedShapeCount; }       
-        set {             
-            storedShapeCount += value; 
-
-            if(storedShapeCount >= 5 - UIController.Instance.Level) {
-                storedShapeCount = 0;  
-            }                        
-        }
-    } 
-
+    [SerializeField] bool letSpawn = false; //ANCHOR menü ekranı geçip oyun başlamadan spawn etmemesi için yapıldı.
+    public bool LetSpawn {
+        set { if(value != letSpawn) letSpawn = value; }
+    }
+    Transform buttonShapeHolder;
+    Transform topShapeHolder;
+    
 
     private void Start() {
         
-        CreateShadowShapes();
+        buttonShapeHolder = new GameObject("buttonShapeHolder").transform;
+        topShapeHolder = new GameObject("topShapeHolder").transform;
+        StartCoroutine(SpawnSqrAtTop(changeSqrPercentage));       
     }
     
-
+    
     public Shape SpawnShape(Transform transform) {
 
         Shape randomShape = shapeTypes[UnityEngine.Random.Range(0, shapeTypes.Length)];
 
-        var shape = Instantiate(randomShape, transform.position, Quaternion.identity, transform) as Shape;
+        var shape = Instantiate(randomShape, transform.position, Quaternion.identity, buttonShapeHolder) as Shape;
         shape.name = randomShape.name;
         return shape;
     }
 
-    
-    void CreateShadowShapes() {
 
-        Transform shadowShapesHolder = new GameObject("ShadowShapes").transform;
-        shadowShapeArray = new Transform[shapeTypes.Length];
-
-        for (int i = 0; i < shapeTypes.Length; i++)
-        {
-            Shape shadowShape = Instantiate(shapeTypes[i], shadowShapesHolder.position, Quaternion.identity, shadowShapesHolder);
-            shadowShape.gameObject.SetActive(false);
-            shadowShape.name = shapeTypes[i].gameObject.name;
-            shadowShapeArray[i] = shadowShape.transform;
-        }
-
-        foreach (Transform child in shadowShapesHolder)
-        {
-            var renderers = child.GetComponentsInChildren<SpriteRenderer>();
-            child.GetComponent<Shape>().SetPivotOutButton();
-
-            foreach (SpriteRenderer renderer in renderers)
-            {
-                renderer.color = new Color(1, 1, 1, .5f);
-                renderer.sortingOrder = 1;
-            }
-        }
-    }
-
-
-    public void GetShadowShape(Shape shape, bool setActive) {
-
-        shadowShape = Array.Find<Transform>(shadowShapeArray, shadowShape => shadowShape.name == shape.name);
-        
-        int posX = (int) Mathf.Round(shape.transform.position.x);
-        int posY = (int) Mathf.Round(shape.transform.position.y);
-
-        shadowShape.position = new Vector2(posX, posY);
-        shadowShape.rotation = shape.transform.rotation;
-        
-        shadowShape.gameObject.SetActive(setActive);
-    }
-
-    
-    public void ResetShadowShape(Shape shape) {
-
-        shape.transform.position = shadowShape.position;
-        shadowShape.gameObject.SetActive(false);
-        shadowShape.position = Vector3.zero;
-    }
-
-
-    public void DestroyShapeInButtons() {
+    public void DestroyShapeInButtons() { //ANCHOR ChangeButton'un(Eventolarak) üstünde kullanılıyor.
 
         if(UIController.Instance.ChangeButtonCount <= 0) return;
         
@@ -106,13 +56,12 @@ public class Spawner : MonoBehaviour
     }
 
 
-    private List<int> DigitList(int minValue, int maxValue)
+    private List<int> DigitList()
     {
         List<int> sqrDigits = new List<int>();
         sqrDigits.Clear();
-        int sqrRowNumber = UnityEngine.Random.Range(minValue, maxValue + 1);
 
-        for (int x = 0; x < sqrRowNumber; x++)
+        for (int x = 0; sqrDigits.Distinct().ToList().Count < sqrDensity; x++)
         {
             int randomPosX = (int)UnityEngine.Random.Range(0, Board.Instance.BoardWidth);
             sqrDigits.Add(randomPosX);
@@ -122,29 +71,47 @@ public class Spawner : MonoBehaviour
     }
 
 
-    public IEnumerator SpawnSqrAtBottom(int minValue, int maxValue, int percent)
-    {
-        if (storedShapeCount == 0) {
-            
-            Board board = Board.Instance;
+    public IEnumerator SpawnSqrAtTop(int percent)
+    {   
+        Board board = Board.Instance;
+        List<int> sqrDigits;
 
-            if(board.DestroyedRowsCount > 0) yield return new WaitForSeconds(1f);
+        for (int i = 0; i < 2; i++) //ANCHOR Oyun başlangıcında TopSqr üretmek için.
+        {
+            yield return new WaitUntil(() => letSpawn);
 
-            var sqrDigits = DigitList(minValue, maxValue);
-                
-            yield return new WaitForSeconds(0.2f);
-            board.ShiftRowUp();
+            sqrDigits = DigitList();
+            board.ShiftRowDown();
             SoundManager.Instance.Play("TeleportBricks");
-            
-            for (int r = 0; r < sqrDigits.Count; r++)
-            {
-                Vector2 randomXpos = new Vector2(sqrDigits.ToList()[r], transform.position.y);
+            SpawnTopSqr(percent, board, sqrDigits);           
+        }
+        
 
-                Transform sqr = Instantiate(Sqr(percent), randomXpos, Quaternion.identity);
-                sqr.GetComponent<Animator>().Play("TeleportAnim");
-                board.StoreShapeInGrid(sqr);
-            }           
-        }        
+        while(true) //ANCHOR Rutin TopSqr üretmek için.
+        {   
+            yield return new WaitWhile(() => Board.Instance.IsAnimPlaying);
+            yield return new WaitUntil(() => letSpawn);
+            yield return new WaitForSeconds(spawnSpeed);
+
+           
+            sqrDigits = DigitList();
+            board.ShiftRowDown();
+            SoundManager.Instance.Play("TeleportBricks");
+
+            SpawnTopSqr(percent, board, sqrDigits);
+        }
+    }
+
+
+    private void SpawnTopSqr(int percent, Board board, List<int> sqrDigits)
+    {
+        for (int r = 0; r < sqrDigits.Count; r++)
+        {
+            Vector2 randomXpos = new Vector2(sqrDigits[r], transform.position.y);
+        
+            Transform sqr = Instantiate(Sqr(percent), randomXpos, Quaternion.identity, topShapeHolder);
+            board.StoreShapeInGrid(sqr);
+        }
     }
 
 
@@ -154,11 +121,11 @@ public class Spawner : MonoBehaviour
             return bonusSquare;
         }
 
-        return bottomSquare;
+        return topSquare;
     }
 
 
-    public void RotateShapesInButton() {
+    public void RotateShapesInButton(int angle) { //ANCHOR RotationButton'un(Event olarak) üstünde kullanılıyor.
 
         SoundManager.Instance.Play("ButtonClick");
 
@@ -166,7 +133,7 @@ public class Spawner : MonoBehaviour
         {
             if(!button.GetComponent<Button>().StoredShape) continue;
 
-            button.GetComponent<Button>().StoredShape.RotateRight();
+            button.GetComponent<Button>().StoredShape.RotateRight(angle);
         }
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Shape
   - ChangeSqr
+  - ShadowShape
   layers:
   - Default
   - TransparentFX

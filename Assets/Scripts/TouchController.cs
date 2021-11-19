@@ -2,20 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class TouchController : MonoBehaviour
 {    
-    [SerializeField] [Range(0, 15)] int minSpawnNumber = 6;
-    [SerializeField] [Range(0, 15)] int maxSpawnNumber = 6;
     [SerializeField] [Range(10, 100)] int difficulty = 20;
-    [SerializeField] [Range(0, 100)] int changeSqrPercentage = 1;
     Collider2D button;
     Shape shape = null;
     Spawner spawner;  
     bool isCoroutineActive = false;
     IEnumerator destroyRoutine;
-    IEnumerator spawnRoutine;
-
 
     private void Awake() {
         spawner = FindObjectOfType<Spawner>();
@@ -64,7 +58,9 @@ public class TouchController : MonoBehaviour
 
         if (touch.phase == TouchPhase.Moved)
         {
-            shape.transform.position = new Vector2(touchPos.x, touchPos.y + 3.5f);         
+            var x = Mathf.Round(touchPos.x);
+            var y = Mathf.Round(touchPos.y);
+            shape.transform.position = new Vector2(x, y + 1);
         }
     }
 
@@ -75,9 +71,9 @@ public class TouchController : MonoBehaviour
 
         if (touch.phase == TouchPhase.Ended)
         {
-            if (Board.Instance.IsValidPosition(shape.transform))
+            if (Board.Instance.IsValidPosAreaShape(shape.transform) && ShadowShapes.Instance.ShadowShape)
             {
-                spawner.ResetShadowShape(shape);
+                ShadowShapes.Instance.ResetShadowShape(shape);
                 Board.Instance.StoreShapeInGrid(shape.transform);
                 destroyRoutine = Board.Instance.DestroyAllRows();
                 StartCoroutine(destroyRoutine);
@@ -88,10 +84,7 @@ public class TouchController : MonoBehaviour
                 shape = null;
 
                 UIController.Instance.ScoreText(Board.Instance.DestroyedRowsCount);
-                UIController.Instance.LevelText(difficulty);
-
-                spawnRoutine = spawner.SpawnSqrAtBottom(minSpawnNumber, maxSpawnNumber, changeSqrPercentage);
-                StartCoroutine(spawnRoutine);                                            
+                UIController.Instance.LevelText(difficulty);                                      
             }
             else
             {              
@@ -108,12 +101,9 @@ public class TouchController : MonoBehaviour
 
         shape.SetPivotInButton();
         shape.transform.localScale = new Vector2(.5f, .5f);
-        spawner.ResetShadowShape(shape);
 
         while ((shape.transform.position - button.transform.position).sqrMagnitude > Mathf.Epsilon)
-        {
-            isCoroutineActive = true;
-
+        {   
             shape.transform.position = Vector2.MoveTowards(
                 shape.transform.position, button.transform.position, 50 * Time.deltaTime);
 
@@ -138,13 +128,13 @@ public class TouchController : MonoBehaviour
             {
                 if (button && shape)
                 {
-                    if (Board.Instance.IsValidPosition(shape.transform))
+                    if (Board.Instance.IsValidPosAreaShape(shape.transform))
                     {
-                        spawner.GetShadowShape(shape, true);
+                        ShadowShapes.Instance.GetShadowShape(shape, true);
                     }
                     else
                     {
-                        spawner.GetShadowShape(shape, false);
+                        ShadowShapes.Instance.GetShadowShape(shape, false);
                     }
                 }
             }

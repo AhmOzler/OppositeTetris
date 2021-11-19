@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-    Spawner spawner;   
     [SerializeField] Shape storedShape = null;
     public Shape StoredShape {
         get { return storedShape; }
         set { storedShape = value; }
     }
 
+    [SerializeField] bool letSpawn = false; //ANCHOR menü ekranı geçip oyun başlamadan spawn etmemesi için yapıldı.
+    Spawner spawner;
 
     private void Awake() {
         spawner = FindObjectOfType<Spawner>();
@@ -19,15 +20,17 @@ public class Button : MonoBehaviour
 
     private void Start() {
 
-        SpawnShapeInButton();
+        if(letSpawn)
+            SpawnShapeInButton();
     }
 
 
     private void Update() {
+        
+       spawner.LetSpawn = letSpawn;
 
-        if(StoredShape == null)
+        if(StoredShape == null && letSpawn)
         {
-            spawner.StoredShapeCount = 1;
             SpawnShapeInButton();
         }
     }
