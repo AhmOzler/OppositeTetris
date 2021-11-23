@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e8d1a0a964671c44b2b39c32b59b21c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropInterval: 0.2
   shapeOffset: {x: 0.5, y: -1, z: 0}
-  moveDownOn: 0
+  a: 0
+  dd: {fileID: 0}
 --- !u!1001 &358596759842343758
 PrefabInstance:
   m_ObjectHideFlags: 0

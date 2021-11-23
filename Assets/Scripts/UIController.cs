@@ -11,8 +11,10 @@ public class UIController : MonoBehaviour
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI changeButtonText;
+    [SerializeField] TextMeshProUGUI scoreScreenText;
+    [SerializeField] TextMeshProUGUI highScoreScreenText;
     [SerializeField] GameObject changeButton;
-    Animator gameoverAnim;
+    Animator UIanims;
     string currentState;
     int level = 1;
     public int Level => level;
@@ -29,7 +31,7 @@ public class UIController : MonoBehaviour
 
     private void Awake() {
         
-        gameoverAnim = GetComponent<Animator>();
+        UIanims = GetComponent<Animator>();
         
         if(instance == null)
             instance = this;
@@ -56,6 +58,8 @@ public class UIController : MonoBehaviour
             HighScore = score;
 
         scoreText.text = "DestroyedRows: " + score.ToString();
+        scoreScreenText.text = score.ToString();
+        highScoreScreenText.text = HighScore.ToString();
     }
 
 
@@ -94,11 +98,11 @@ public class UIController : MonoBehaviour
     }
 
 
-    public void GetGameOverSceneAnim(string newState) {
+    public void GetUIAnim(string newState) {
 
         if(currentState == newState) return;
 
-        gameoverAnim.Play(newState);
+        UIanims.Play(newState);
         currentState = newState;
     }
 }

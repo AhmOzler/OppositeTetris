@@ -3,31 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+using TMPro;
 
 public class Spawner : MonoBehaviour
 {
     [SerializeField] [Range(1, 8)] int sqrDensity = 7;
-    [SerializeField] [Range(5, 15)] float spawnSpeed = 10;
+    [SerializeField] [Range(.2f, 15)] float spawnSpeed = 10;
     [SerializeField] [Range(0, 100)] int changeSqrPercentage = 1;
     [SerializeField] Shape[] shapeTypes;
     public Shape[] ShapeTypes => shapeTypes;
     [SerializeField] Transform topSquare;
     [SerializeField] Transform bonusSquare;
     [SerializeField] Transform[] buttons;
-    [SerializeField] bool letSpawn = false; //ANCHOR menü ekranı geçip oyun başlamadan spawn etmemesi için yapıldı.
-    public bool LetSpawn {
-        set { if(value != letSpawn) letSpawn = value; }
+    [SerializeField] bool isUIWallOpen = false; //ANCHOR menü ekranı geçip oyun başlamadan spawn etmemesi için yapıldı.
+
+    public bool IsUIWallOpen {
+        set { if(value != isUIWallOpen) isUIWallOpen = value; }
     }
     Transform buttonShapeHolder;
     Transform topShapeHolder;
-    
+    IEnumerator spawnRoutine;
 
     private void Start() {
         
         buttonShapeHolder = new GameObject("buttonShapeHolder").transform;
         topShapeHolder = new GameObject("topShapeHolder").transform;
-        StartCoroutine(SpawnSqrAtTop(changeSqrPercentage));       
+        spawnRoutine = SpawnSqrAtTop(changeSqrPercentage);
+        StartCoroutine(spawnRoutine);
     }
+
+    /* private void Update() {
+        //spawnRoutine = SpawnSqrAtTop(changeSqrPercentage);
+
+        if(Input.GetKeyDown(KeyCode.Q)) {
+            Debug.Log("Q pressed");
+            StartCoroutine(spawnRoutine);
+        }
+            
+
+        if(Input.GetKeyDown(KeyCode.W)) {
+            Debug.Log("W pressed");
+            StopCoroutine(spawnRoutine);
+        }
+            
+    } */
     
     
     public Shape SpawnShape(Transform transform) {
@@ -73,12 +92,13 @@ public class Spawner : MonoBehaviour
 
     public IEnumerator SpawnSqrAtTop(int percent)
     {   
+        
         Board board = Board.Instance;
         List<int> sqrDigits;
 
         for (int i = 0; i < 2; i++) //ANCHOR Oyun başlangıcında TopSqr üretmek için.
         {
-            yield return new WaitUntil(() => letSpawn);
+            yield return new WaitUntil(() => isUIWallOpen);
 
             sqrDigits = DigitList();
             board.ShiftRowDown();
@@ -87,18 +107,19 @@ public class Spawner : MonoBehaviour
         }
         
 
-        while(true) //ANCHOR Rutin TopSqr üretmek için.
+        while(!Board.Instance.IsOverLimit()) //ANCHOR Rutin TopSqr üretmek için.
         {   
-            yield return new WaitWhile(() => Board.Instance.IsAnimPlaying);
-            yield return new WaitUntil(() => letSpawn);
-            yield return new WaitForSeconds(spawnSpeed);
+            //if(Board.Instance.IsOverLimit()) yield break;
 
-           
+            yield return new WaitWhile(() => Board.Instance.IsAnimPlaying);
+            yield return new WaitUntil(() => isUIWallOpen);
+            yield return new WaitForSeconds(spawnSpeed); 
+            
             sqrDigits = DigitList();
             board.ShiftRowDown();
             SoundManager.Instance.Play("TeleportBricks");
 
-            SpawnTopSqr(percent, board, sqrDigits);
+            SpawnTopSqr(percent, board, sqrDigits);           
         }
     }
 
@@ -110,6 +131,11 @@ public class Spawner : MonoBehaviour
             Vector2 randomXpos = new Vector2(sqrDigits[r], transform.position.y);
         
             Transform sqr = Instantiate(Sqr(percent), randomXpos, Quaternion.identity, topShapeHolder);
+
+            int hologramFadePropertyID = Shader.PropertyToID("_HologramFade"); //ANCHOR Hologram'ın fade ini 0 lamak için.
+            var mat = sqr.GetComponent<SpriteRenderer>().material;
+            mat.SetFloat(hologramFadePropertyID, 0);
+
             board.StoreShapeInGrid(sqr);
         }
     }

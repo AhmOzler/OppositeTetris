@@ -66,8 +66,10 @@ public class Board : MonoBehaviour
 
     public void StoreShapeInGrid(Transform shape)
     {
+        shape.gameObject.tag = "StoredShape";
+        
         if(shape.childCount > 0) { //ANCHOR shape objesi sqrlarım parenti ise(Shapeler için).
-
+            
             foreach (Transform child in shape) {
 
                 int childx, childy;
@@ -179,7 +181,7 @@ public class Board : MonoBehaviour
     }
 
     
-    public IEnumerator DestroyAllRows() {
+    public IEnumerator DestroyFullRows() {
 
         isAnimPlaying = true;
 
@@ -196,6 +198,26 @@ public class Board : MonoBehaviour
         }  
 
         isAnimPlaying = false; 
+    }
+
+
+    public IEnumerator DestroyAllRows() {
+
+        yield return new WaitForSeconds(0.5f);      
+
+        for (int y = 0; y < boardHeight; y++)
+        {     
+            for (int x = 0; x < boardWidth; x++)
+            {
+                if(gridArray[x, y] == null) continue;
+                gridArray[x, y].GetComponent<Animator>().Play("DestroyAnim");
+                Destroy(gridArray[x, y].gameObject, gridArray[x, y].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+            }       
+        }  
+
+        yield return new WaitForSeconds(0.5f);
+
+        UIController.Instance.GetUIAnim("CloseScorePanel");
     }
     
 

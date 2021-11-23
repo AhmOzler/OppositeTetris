@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapeOffset: {x: 0, y: 0, z: 0}
+  a: 0
+  dd: {fileID: 0}
 --- !u!1001 &477997385093924221
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -18,6 +18,11 @@ public class TouchController : MonoBehaviour
 
     private void Update() {
 
+        if(Board.Instance.IsOverLimit()) {
+            StartCoroutine(Board.Instance.DestroyAllRows());
+            return;
+        }
+
         if(isCoroutineActive) return;
 
         if (Input.touchCount > 0) {
@@ -75,7 +80,7 @@ public class TouchController : MonoBehaviour
             {
                 ShadowShapes.Instance.ResetShadowShape(shape);
                 Board.Instance.StoreShapeInGrid(shape.transform);
-                destroyRoutine = Board.Instance.DestroyAllRows();
+                destroyRoutine = Board.Instance.DestroyFullRows();
                 StartCoroutine(destroyRoutine);
                 Board.Instance.SqrSFXandVFX();
 

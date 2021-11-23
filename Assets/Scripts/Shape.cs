@@ -8,6 +8,7 @@ public class Shape : MonoBehaviour
     public Vector3 ShapeOffset => shapeOffset;
     Spawner spawner;
     Animator[] animators;
+    int hologramFadePropertyID;
 
     private void Awake() {
         spawner = FindObjectOfType<Spawner>();
@@ -55,20 +56,30 @@ public class Shape : MonoBehaviour
     }
 
 
-    public void SetPivotOutButton() {
-
-        foreach (Transform child in transform)
-        {
-            child.localPosition += shapeOffset;           
-        }
+    private void HologramFade(Transform child, float fadePercent)
+    {
+        Material mat = child.GetComponent<SpriteRenderer>().material;
+        hologramFadePropertyID = Shader.PropertyToID("_HologramFade");
+        mat.SetFloat(hologramFadePropertyID, fadePercent);
     }
 
 
-    public void SetPivotInButton() {
+    public void SetPivotOutButton() {
+        
+        foreach (Transform child in transform)
+        {
+            child.localPosition += shapeOffset;
+            HologramFade(child, 0);
+        }
+    }
 
+    
+    public void SetPivotInButton() {
+        
         foreach (Transform child in transform)
         {
             child.localPosition -= shapeOffset;
+            HologramFade(child, .85f);  
         }
     }
     
@@ -80,6 +91,15 @@ public class Shape : MonoBehaviour
             if(!Board.Instance.IsValidPosition(transform)) {
                 MoveDown();
             }
-        }       
+        } 
+
+
+        if(gameObject.CompareTag("StoredShape")) {
+
+            foreach (Transform child in transform)
+            {
+                if(child.position.y < 5) Destroy(child.gameObject);
+            }
+        }  
     }
 }

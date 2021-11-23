@@ -7,6 +7,8 @@ TagManager:
   - Shape
   - ChangeSqr
   - ShadowShape
+  - StoredShape
+  - FreeShape
   layers:
   - Default
   - TransparentFX

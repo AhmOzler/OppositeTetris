@@ -10,7 +10,7 @@ public class Button : MonoBehaviour
         set { storedShape = value; }
     }
 
-    [SerializeField] bool letSpawn = false; //ANCHOR menü ekranı geçip oyun başlamadan spawn etmemesi için yapıldı.
+    [SerializeField] bool IsUIWallOpen = false; //ANCHOR menü ekranı geçip oyun başlamadan spawn etmemesi için yapıldı.
     Spawner spawner;
 
     private void Awake() {
@@ -18,21 +18,25 @@ public class Button : MonoBehaviour
     }
 
 
-    private void Start() {
+    /* private void Start() { //ANCHOR Menu ekranı açıldığında buttonlarda shapeleri spawn eder.
 
-        if(letSpawn)
+        if(IsUIWallOpen)
             SpawnShapeInButton();
-    }
+    } */
 
 
-    private void Update() {
+    private void Update() { //ANCHOR Buttonlar(storedShape) null olduğunda shape spawn eder.
         
-       spawner.LetSpawn = letSpawn;
+       spawner.IsUIWallOpen = IsUIWallOpen;
 
-        if(StoredShape == null && letSpawn)
+        if(StoredShape == null && IsUIWallOpen && !Board.Instance.IsOverLimit())
         {
             SpawnShapeInButton();
         }
+
+
+        if(Board.Instance.IsOverLimit() && StoredShape)
+            Destroy(StoredShape.gameObject);
     }
 
 
