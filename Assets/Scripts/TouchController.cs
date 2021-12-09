@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class TouchController : MonoBehaviour
 {    
-    [SerializeField] [Range(10, 100)] int difficulty = 20;
     Collider2D button;
     Shape shape = null;
-    Spawner spawner;  
+    Spawner spawner;
     bool isCoroutineActive = false;
     IEnumerator destroyRoutine;
 
@@ -18,7 +17,8 @@ public class TouchController : MonoBehaviour
 
     private void Update() {
 
-        if(Board.Instance.IsOverLimit()) {
+        if(Board.Instance.IsGameOver) {
+            
             StartCoroutine(Board.Instance.DestroyAllRows());
             return;
         }
@@ -34,7 +34,7 @@ public class TouchController : MonoBehaviour
 
             TouchMoved(touch, touchPos);
 
-            TouchEnd(touch);            
+            TouchEnd(touch);
         }       
     }
 
@@ -45,11 +45,11 @@ public class TouchController : MonoBehaviour
         {
             button = Physics2D.OverlapPoint(touchPos);
 
-            if (button) 
+            if (button)
                 shape = button.GetComponent<Button>().StoredShape;
 
             if (shape != null)
-            {              
+            {
                 shape.transform.localScale = Vector3.one;
                 shape.SetPivotOutButton();
             }
@@ -62,10 +62,29 @@ public class TouchController : MonoBehaviour
         if (shape == null) return;
 
         if (touch.phase == TouchPhase.Moved)
-        {
-            var x = Mathf.Round(touchPos.x);
-            var y = Mathf.Round(touchPos.y);
-            shape.transform.position = new Vector2(x, y + 1);
+        {    
+            shape.transform.position = new Vector2(touchPos.x, touchPos.y + 1);
+
+            foreach (Transform child in shape.transform)
+            {
+                if(child.position.x >= Board.Instance.BoardWidth - 1) {
+                    var dist = Vector2.Distance(new Vector2(shape.transform.position.x, 0), new Vector2(child.position.x, 0));
+                    shape.transform.position = new Vector2(Board.Instance.BoardWidth - 1 - dist, shape.transform.position.y);
+                }
+                else if(child.position.x <= 0) {
+                    var dist = Vector2.Distance(new Vector2(shape.transform.position.x, 0), new Vector2(child.position.x, 0));
+                    shape.transform.position = new Vector2(0 + dist, shape.transform.position.y);
+                }
+
+                if(child.position.y <= 0) {
+                    var dist = Vector2.Distance(new Vector2(0, shape.transform.position.y), new Vector2(0, child.position.y));
+                    shape.transform.position = new Vector2(shape.transform.position.x, 0 + dist);
+                }
+                /* else if(child.position.y >= 4) {
+                    var dist = Vector2.Distance(new Vector2(0, shape.transform.position.y), new Vector2(0, child.position.y));
+                    shape.transform.position = new Vector2(shape.transform.position.x, 4 - dist);
+                } */
+            }               
         }
     }
 
@@ -76,7 +95,7 @@ public class TouchController : MonoBehaviour
 
         if (touch.phase == TouchPhase.Ended)
         {
-            if (Board.Instance.IsValidPosAreaShape(shape.transform) && ShadowShapes.Instance.ShadowShape)
+            if (Board.Instance.IsValidPosForFreeShape(shape.transform) && ShadowShapes.Instance.ShadowShape)
             {
                 ShadowShapes.Instance.ResetShadowShape(shape);
                 Board.Instance.StoreShapeInGrid(shape.transform);
@@ -89,7 +108,7 @@ public class TouchController : MonoBehaviour
                 shape = null;
 
                 UIController.Instance.ScoreText(Board.Instance.DestroyedRowsCount);
-                UIController.Instance.LevelText(difficulty);                                      
+                UIController.Instance.LevelText();
             }
             else
             {              
@@ -133,7 +152,7 @@ public class TouchController : MonoBehaviour
             {
                 if (button && shape)
                 {
-                    if (Board.Instance.IsValidPosAreaShape(shape.transform))
+                    if (Board.Instance.IsValidPosForFreeShape(shape.transform))
                     {
                         ShadowShapes.Instance.GetShadowShape(shape, true);
                     }

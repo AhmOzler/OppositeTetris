@@ -4,11 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Shape
-  - ChangeSqr
   - ShadowShape
   - StoredShape
   - FreeShape
+  - RM_Background
+  - RM_Canvas
+  - BonusShape
   layers:
   - Default
   - TransparentFX

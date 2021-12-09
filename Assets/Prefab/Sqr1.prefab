@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5291435679182013999}
   m_Layer: 0
   m_Name: Sqr1
-  m_TagString: Untagged
+  m_TagString: FreeShape
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

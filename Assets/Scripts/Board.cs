@@ -8,21 +8,17 @@ public class Board : MonoBehaviour
     private static Board instance;
     public static Board Instance => instance;
     [SerializeField] GameObject grid;
-    [SerializeField] Color gridColor = Color.white;
     [SerializeField] [Range(0, 15)] int boardWidth;
     public int BoardWidth => boardWidth;
-
     [SerializeField] [Range(0, 30)] int boardHeight;
-    [SerializeField] Color shadowShapeColor = new Color(1, 1, 1, 0.2f);
-
     Transform[,] gridArray;
     [SerializeField] int destroyedRowsCount;
     public int DestroyedRowsCount => destroyedRowsCount;
-    int topRowIndex;
-    Shape shadowShape;
     [SerializeField] bool isAnimPlaying = false;
     public bool IsAnimPlaying => isAnimPlaying;
-    bool isHitBottom = false;
+    bool isGameOver;
+    public bool IsGameOver => isGameOver;
+    bool isCoroutineActive = false;
 
     private void Awake() {
 
@@ -50,7 +46,6 @@ public class Board : MonoBehaviour
             for (int x = 0; x < boardWidth; x++)
             {
                 GameObject gridInstance = Instantiate(grid, new Vector2(x, y), Quaternion.identity, transform);
-                gridInstance.GetComponent<SpriteRenderer>().color = gridColor;
                 gridInstance.name = x.ToString() + " " + y.ToString();
             }
         }
@@ -65,9 +60,7 @@ public class Board : MonoBehaviour
 
 
     public void StoreShapeInGrid(Transform shape)
-    {
-        shape.gameObject.tag = "StoredShape";
-        
+    {      
         if(shape.childCount > 0) { //ANCHOR shape objesi sqrlarım parenti ise(Shapeler için).
             
             foreach (Transform child in shape) {
@@ -77,6 +70,7 @@ public class Board : MonoBehaviour
 
                 gridArray[childx, childy] = child;
                 gridArray[childx, childy].GetComponent<SpriteRenderer>().sortingOrder = 9;
+                if(child.CompareTag("FreeShape")) child.gameObject.tag = "StoredShape";
             }
         }
         else { //ANCHOR sqrların parenti yok ise(TopSqr için).
@@ -90,7 +84,7 @@ public class Board : MonoBehaviour
     }
 
 
-    public bool IsValidPosition(Transform shape) {
+    public bool IsValidPosForStoredShape(Transform shape) {
 
         foreach (Transform child in shape)
         {
@@ -106,21 +100,21 @@ public class Board : MonoBehaviour
     }
 
 
-    public bool IsValidPosAreaShape(Transform shape) {
+    public bool IsValidPosForFreeShape(Transform shape) {
 
         foreach (Transform child in shape)
         {
             int childx, childy;
             RoundPos(child, out childx, out childy);
 
-            if (childx < 0 || childx >= boardWidth || childy < 0 || childy > 4) return false;
+            if (childy < 0 || childy > 4) return false;
         }
 
         return true;
     }
 
 
-    bool IsGridsFullInRow(int y) {
+    bool IsGridsFullAtRow(int y) {
 
         for (int x = 0; x < boardWidth; x++)
         {
@@ -137,14 +131,15 @@ public class Board : MonoBehaviour
 
         for (int y = 0; y < boardHeight; y++)
         {
-            if(IsGridsFullInRow(y)) 
-            {
-                destroyedRowsCount++; // ANCHOR Yok edilen satır sayısı.
-
+            if(IsGridsFullAtRow(y)) 
+            {               
                 for (int x = 0; x < boardWidth; x++)
                 {
-                    if (gridArray[x, y].gameObject.CompareTag("ChangeSqr"))
-                    UIController.Instance.IncreaseChangeButton();
+                    if (gridArray[x, y].gameObject.CompareTag("BonusShape"))
+                        UIController.Instance.IncreaseChangeButton();
+
+                    if (gridArray[x, y].gameObject.CompareTag("PointShape"))
+                        destroyedRowsCount++; // ANCHOR Yok edilen satır sayısı.
 
                     gridArray[x, y].GetComponent<Animator>().Play("DestroyAnim");
                     SoundManager.Instance.Play("DestroyBricks");
@@ -189,7 +184,7 @@ public class Board : MonoBehaviour
 
         for (int y = 0; y < boardHeight; y++)
         {
-            if (IsGridsFullInRow(y))
+            if (IsGridsFullAtRow(y))
             {                                            
                 DestroyRow(y);
                 ShiftAllRowsUp(y);
@@ -201,9 +196,7 @@ public class Board : MonoBehaviour
     }
 
 
-    public IEnumerator DestroyAllRows() {
-
-        yield return new WaitForSeconds(0.5f);      
+    public IEnumerator DestroyAllRows() {   
 
         for (int y = 0; y < boardHeight; y++)
         {     
@@ -246,5 +239,28 @@ public class Board : MonoBehaviour
         }
         
         return false;
+    }
+
+
+    IEnumerator IsStillOverLimit() {
+
+        isCoroutineActive = true;
+
+        if(isAnimPlaying) yield return new WaitForSeconds(.6f);
+        else yield return new WaitForSeconds(.01f);
+
+        if(IsOverLimit()) isGameOver = true;
+        else isGameOver = false;
+
+        isCoroutineActive = false;
+    }
+
+
+    private void Update() {
+
+        if(IsOverLimit() && !isCoroutineActive) {
+
+            StartCoroutine("IsStillOverLimit");
+        }
     }
 }

@@ -28,7 +28,6 @@ public class UIController : MonoBehaviour
         set { PlayerPrefs.SetInt("HighScore", value); }
     }
 
-
     private void Awake() {
         
         UIanims = GetComponent<Animator>();
@@ -57,15 +56,15 @@ public class UIController : MonoBehaviour
         if(score > HighScore)
             HighScore = score;
 
-        scoreText.text = "DestroyedRows: " + score.ToString();
+        scoreText.text = "SCORE: " + score.ToString();
         scoreScreenText.text = score.ToString();
         highScoreScreenText.text = HighScore.ToString();
     }
 
 
-    public void LevelText(int difficulty) {
+    public void LevelText() {
 
-        if(score >= difficulty * level && 5 - level >= 1)
+        if(score >= 10 * level)
             level ++;
     
         levelText.text = "LEVEL: " + level.ToString();
@@ -75,7 +74,6 @@ public class UIController : MonoBehaviour
     public void IncreaseChangeButton() {
         
         changeButtonCount ++;
-        SoundManager.Instance.Play("ButtonClick");
         changeButtonText.text = changeButtonCount.ToString();
     }
 
@@ -95,6 +93,12 @@ public class UIController : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
+    }
+
+
+    private void DeleteHighScore() { //ANCHOR UnityEvent olarak kulluanılıyor.
+
+        PlayerPrefs.DeleteKey("HighScore");                
     }
 
 

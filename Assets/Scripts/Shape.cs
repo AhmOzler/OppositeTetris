@@ -26,17 +26,7 @@ public class Shape : MonoBehaviour
     }
 
 
-    public void MoveRight() {
-        transform.position += Vector3.right;
-    }
-
-
-    public void MoveLeft() {
-        transform.position += Vector3.left;
-    }
-
-
-    public void RotateRight(int angle) {
+    public void Rotate(int angle) {
 
         transform.Rotate(0, 0, angle);
         
@@ -79,7 +69,7 @@ public class Shape : MonoBehaviour
         foreach (Transform child in transform)
         {
             child.localPosition -= shapeOffset;
-            HologramFade(child, .85f);  
+            HologramFade(child, .85f);
         }
     }
     
@@ -88,18 +78,14 @@ public class Shape : MonoBehaviour
 
         if(gameObject.CompareTag("ShadowShape")) {
 
-            if(!Board.Instance.IsValidPosition(transform)) {
+            if(!Board.Instance.IsValidPosForStoredShape(transform)) {
                 MoveDown();
             }
         } 
 
-
-        if(gameObject.CompareTag("StoredShape")) {
-
-            foreach (Transform child in transform)
-            {
-                if(child.position.y < 5) Destroy(child.gameObject);
-            }
-        }  
+        foreach (Transform child in transform)
+        {
+            if(!child.CompareTag("FreeShape") && child.position.y < 5) Destroy(child.gameObject);
+        }
     }
 }

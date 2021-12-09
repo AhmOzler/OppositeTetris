@@ -62,7 +62,6 @@ public class ShadowShapes : MonoBehaviour
 
     public void GetShadowShape(Shape shape, bool setActive)
     {
-
         shadowShape = Array.Find<Transform>(shadowShapeArray, shadowShape => shadowShape.name == shape.name);
 
         int posX = (int)Mathf.Round(shape.transform.position.x);
@@ -80,7 +79,7 @@ public class ShadowShapes : MonoBehaviour
 
         shadowShape.gameObject.SetActive(setActive);
 
-        HitTopAndStop();
+        HitTopAndStop(shadowShape);
     }
 
 
@@ -97,20 +96,24 @@ public class ShadowShapes : MonoBehaviour
     }
 
 
-    private void HitTopAndStop() //ANCHOR ShadowShape'in üste vurup durmasını sağlar.
+    private void HitTopAndStop(Transform transform) //ANCHOR ShadowShape'in üste vurup durmasını sağlar.
     {
         isHitTop = false;
 
         while (!isHitTop)
         {
-            shadowShape.GetComponent<Shape>().MoveUp();
+            transform.GetComponent<Shape>().MoveUp();
 
-            if (!Board.Instance.IsValidPosition(shadowShape.transform))
+            if (!Board.Instance.IsValidPosForStoredShape(transform))
             {
                 isHitTop = true;
-                shadowShape.GetComponent<Shape>().MoveDown();
+                transform.GetComponent<Shape>().MoveDown();
             }
         }
+
+        float x = Mathf.Round(transform.position.x);
+        float y = Mathf.Round(transform.position.y);
+        transform.position = new Vector2(x, y);
     }
 
 
@@ -120,11 +123,11 @@ public class ShadowShapes : MonoBehaviour
         {
             child.GetComponent<Animator>().Play("TeleportAnim");
         }
-        
-        shape.transform.position = shadowShape.position;
+
+        HitTopAndStop(shape.transform);
 
         shadowShape.gameObject.SetActive(false);
-        shadowShape.position = transform.position;
-        shadowShape = null;        
+        transform.position = shadowShape.position;
+        shadowShape = null;
     }
 }

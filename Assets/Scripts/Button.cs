@@ -18,25 +18,17 @@ public class Button : MonoBehaviour
     }
 
 
-    /* private void Start() { //ANCHOR Menu ekranı açıldığında buttonlarda shapeleri spawn eder.
-
-        if(IsUIWallOpen)
-            SpawnShapeInButton();
-    } */
-
-
     private void Update() { //ANCHOR Buttonlar(storedShape) null olduğunda shape spawn eder.
         
-       spawner.IsUIWallOpen = IsUIWallOpen;
+        spawner.IsUIWallOpen = IsUIWallOpen;
 
-        if(StoredShape == null && IsUIWallOpen && !Board.Instance.IsOverLimit())
+        if(Board.Instance.IsGameOver && StoredShape)
+            Destroy(StoredShape.gameObject);
+
+        if(StoredShape == null && IsUIWallOpen && !Board.Instance.IsGameOver)
         {
             SpawnShapeInButton();
-        }
-
-
-        if(Board.Instance.IsOverLimit() && StoredShape)
-            Destroy(StoredShape.gameObject);
+        }      
     }
 
 

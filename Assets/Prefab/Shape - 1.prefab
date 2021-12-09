@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 261482338867328924}
   m_Layer: 0
   m_Name: Shape - 1
-  m_TagString: Shape
+  m_TagString: FreeShape
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,8 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapeOffset: {x: 0.5, y: -0.5, z: 0}
-  a: 0
-  dd: {fileID: 0}
 --- !u!1001 &2948986879006460645
 PrefabInstance:
   m_ObjectHideFlags: 0

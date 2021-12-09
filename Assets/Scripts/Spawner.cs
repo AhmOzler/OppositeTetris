@@ -16,7 +16,6 @@ public class Spawner : MonoBehaviour
     [SerializeField] Transform bonusSquare;
     [SerializeField] Transform[] buttons;
     [SerializeField] bool isUIWallOpen = false; //ANCHOR menü ekranı geçip oyun başlamadan spawn etmemesi için yapıldı.
-
     public bool IsUIWallOpen {
         set { if(value != isUIWallOpen) isUIWallOpen = value; }
     }
@@ -31,22 +30,6 @@ public class Spawner : MonoBehaviour
         spawnRoutine = SpawnSqrAtTop(changeSqrPercentage);
         StartCoroutine(spawnRoutine);
     }
-
-    /* private void Update() {
-        //spawnRoutine = SpawnSqrAtTop(changeSqrPercentage);
-
-        if(Input.GetKeyDown(KeyCode.Q)) {
-            Debug.Log("Q pressed");
-            StartCoroutine(spawnRoutine);
-        }
-            
-
-        if(Input.GetKeyDown(KeyCode.W)) {
-            Debug.Log("W pressed");
-            StopCoroutine(spawnRoutine);
-        }
-            
-    } */
     
     
     public Shape SpawnShape(Transform transform) {
@@ -80,7 +63,9 @@ public class Spawner : MonoBehaviour
         List<int> sqrDigits = new List<int>();
         sqrDigits.Clear();
 
-        for (int x = 0; sqrDigits.Distinct().ToList().Count < sqrDensity; x++)
+        int density = (int)UnityEngine.Random.Range(sqrDensity - 1, sqrDensity + 1);
+
+        for (int x = 0; sqrDigits.Distinct().ToList().Count < density; x++)
         {
             int randomPosX = (int)UnityEngine.Random.Range(0, Board.Instance.BoardWidth);
             sqrDigits.Add(randomPosX);
@@ -91,12 +76,11 @@ public class Spawner : MonoBehaviour
 
 
     public IEnumerator SpawnSqrAtTop(int percent)
-    {   
-        
+    {           
         Board board = Board.Instance;
         List<int> sqrDigits;
 
-        for (int i = 0; i < 2; i++) //ANCHOR Oyun başlangıcında TopSqr üretmek için.
+        for (int i = 0; i < 3; i++) //ANCHOR Oyun başlangıcında TopSqr üretmek için.
         {
             yield return new WaitUntil(() => isUIWallOpen);
 
@@ -107,13 +91,13 @@ public class Spawner : MonoBehaviour
         }
         
 
-        while(!Board.Instance.IsOverLimit()) //ANCHOR Rutin TopSqr üretmek için.
+        while(!Board.Instance.IsGameOver && isUIWallOpen) //ANCHOR Rutin TopSqr üretmek için.
         {   
-            //if(Board.Instance.IsOverLimit()) yield break;
+            if(Board.Instance.IsGameOver) yield break;
 
             yield return new WaitWhile(() => Board.Instance.IsAnimPlaying);
             yield return new WaitUntil(() => isUIWallOpen);
-            yield return new WaitForSeconds(spawnSpeed); 
+            yield return new WaitForSeconds(spawnSpeed - (UIController.Instance.Level * .2f)); 
             
             sqrDigits = DigitList();
             board.ShiftRowDown();
@@ -159,7 +143,7 @@ public class Spawner : MonoBehaviour
         {
             if(!button.GetComponent<Button>().StoredShape) continue;
 
-            button.GetComponent<Button>().StoredShape.RotateRight(angle);
+            button.GetComponent<Button>().StoredShape.Rotate(angle);
         }
     }
 }
