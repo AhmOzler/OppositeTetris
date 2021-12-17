@@ -81,6 +81,7 @@ m_PackageAssets:
         - 3.2.11
         - 3.2.13
         - 3.2.14
+        - 3.2.15
         - 4.0.0
         - 4.0.1
         - 4.1.0
@@ -102,6 +103,7 @@ m_PackageAssets:
         - 5.0.7
         - 5.0.8
         - 5.0.9
+        - 5.0.10
         - 6.0.0-pre.1
         - 6.0.0-pre.2
         - 6.0.1
@@ -114,13 +116,13 @@ m_PackageAssets:
         - 7.0.0
         - 7.0.1
         - 7.0.2
+        - 7.0.3
         - 8.0.0-pre.3
+        - 8.0.0-pre.4
         compatible:
-        - 5.0.6
-        - 5.0.7
-        - 5.0.8
         - 5.0.9
-        verified: 5.0.9
+        - 5.0.10
+        verified: 5.0.10
       dependencies:
       - name: com.unity.2d.common
         version: 4.0.3
@@ -2929,4 +2931,4 @@ m_PackageAssets:
   m_LocalPackages:
     m_LocalFileStatus: []
 m_ProjectPath: C:/Program Files/Unity Projects/OpposiTetris/Packages
-m_EditorVersion: 2020.3.18f1 (a7d1c678663c)
+m_EditorVersion: 2020.3.25f1 (9b9180224418)
