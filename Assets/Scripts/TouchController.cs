@@ -80,10 +80,6 @@ public class TouchController : MonoBehaviour
                     var dist = Vector2.Distance(new Vector2(0, shape.transform.position.y), new Vector2(0, child.position.y));
                     shape.transform.position = new Vector2(shape.transform.position.x, 0 + dist);
                 }
-                /* else if(child.position.y >= 4) {
-                    var dist = Vector2.Distance(new Vector2(0, shape.transform.position.y), new Vector2(0, child.position.y));
-                    shape.transform.position = new Vector2(shape.transform.position.x, 4 - dist);
-                } */
             }               
         }
     }
@@ -111,7 +107,7 @@ public class TouchController : MonoBehaviour
                 UIController.Instance.LevelText();
             }
             else
-            {              
+            {            
                 StartCoroutine("TurntoButtonPos");
                 SoundManager.Instance.Play("InvalidPosition");                           
             }      
@@ -119,7 +115,7 @@ public class TouchController : MonoBehaviour
     }
 
 
-    public IEnumerator TurntoButtonPos()
+    public IEnumerator TurntoButtonPos() //String olarak kullanılıyor.
     {
         isCoroutineActive = true;
 
@@ -135,6 +131,7 @@ public class TouchController : MonoBehaviour
         }
 
         shape.transform.position = button.transform.position;
+        shape.SetPivotInButton();
         button = null;
         shape = null;
         isCoroutineActive = false;

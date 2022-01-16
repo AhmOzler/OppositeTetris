@@ -27,6 +27,7 @@ public class UIController : MonoBehaviour
         get { return PlayerPrefs.GetInt("HighScore"); }
         set { PlayerPrefs.SetInt("HighScore", value); }
     }
+    
 
     private void Awake() {
         
@@ -71,9 +72,9 @@ public class UIController : MonoBehaviour
     }
 
 
-    public void IncreaseChangeButton() {
+    public void IncreaseChangeButton(int i) {
         
-        changeButtonCount ++;
+        changeButtonCount += i;
         changeButtonText.text = changeButtonCount.ToString();
     }
 

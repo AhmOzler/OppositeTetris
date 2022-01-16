@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
-using TMPro;
 
 public class Spawner : MonoBehaviour
 {
+    public static Action OnBannerAd;
     [SerializeField] [Range(1, 8)] int sqrDensity = 7;
     [SerializeField] [Range(.2f, 15)] float spawnSpeed = 10;
     [SerializeField] [Range(0, 100)] int changeSqrPercentage = 1;
@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
     IEnumerator spawnRoutine;
 
     private void Start() {
-        
+              
         buttonShapeHolder = new GameObject("buttonShapeHolder").transform;
         topShapeHolder = new GameObject("topShapeHolder").transform;
         spawnRoutine = SpawnSqrAtTop(changeSqrPercentage);
@@ -91,10 +91,8 @@ public class Spawner : MonoBehaviour
         }
         
 
-        while(!Board.Instance.IsGameOver && isUIWallOpen) //ANCHOR Rutin TopSqr üretmek için.
+        while(isUIWallOpen) //ANCHOR Rutin TopSqr üretmek için.
         {   
-            if(Board.Instance.IsGameOver) yield break;
-
             yield return new WaitWhile(() => Board.Instance.IsAnimPlaying);
             yield return new WaitUntil(() => isUIWallOpen);
             yield return new WaitForSeconds(spawnSpeed - (UIController.Instance.Level * .2f)); 
@@ -105,6 +103,16 @@ public class Spawner : MonoBehaviour
 
             SpawnTopSqr(percent, board, sqrDigits);           
         }
+    }
+
+
+    private void Update() {
+
+        if(Board.Instance.IsGameOver) {
+
+            StopAllCoroutines();
+            AdManager.Instance.Invoke("ShowInterstitialAd", 0.6f);
+        }         
     }
 
 

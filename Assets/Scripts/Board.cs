@@ -15,7 +15,7 @@ public class Board : MonoBehaviour
     [SerializeField] int destroyedRowsCount;
     public int DestroyedRowsCount => destroyedRowsCount;
     [SerializeField] bool isAnimPlaying = false;
-    public bool IsAnimPlaying => isAnimPlaying;
+    public bool IsAnimPlaying => isAnimPlaying; //TODO gereksiz!
     bool isGameOver;
     public bool IsGameOver => isGameOver;
     bool isCoroutineActive = false;
@@ -136,7 +136,7 @@ public class Board : MonoBehaviour
                 for (int x = 0; x < boardWidth; x++)
                 {
                     if (gridArray[x, y].gameObject.CompareTag("BonusShape"))
-                        UIController.Instance.IncreaseChangeButton();
+                        UIController.Instance.IncreaseChangeButton(1);
 
                     if (gridArray[x, y].gameObject.CompareTag("PointShape"))
                         destroyedRowsCount++; // ANCHOR Yok edilen satır sayısı.
@@ -247,7 +247,8 @@ public class Board : MonoBehaviour
         isCoroutineActive = true;
 
         if(isAnimPlaying) yield return new WaitForSeconds(.6f);
-        else yield return new WaitForSeconds(.01f);
+
+        yield return new WaitForSeconds(.01f);
 
         if(IsOverLimit()) isGameOver = true;
         else isGameOver = false;

@@ -76,14 +76,14 @@ public class Shape : MonoBehaviour
 
     private void Update() {
 
-        if(gameObject.CompareTag("ShadowShape")) {
-
+        if(gameObject.CompareTag("ShadowShape")) //ANCHOR shapelerin stacklanmaması nı saplar.
+        { 
             if(!Board.Instance.IsValidPosForStoredShape(transform)) {
                 MoveDown();
             }
         } 
 
-        foreach (Transform child in transform)
+        foreach (Transform child in transform) //ANCHOR y 5 ten aşağıda olan shapeleri yok eder.
         {
             if(!child.CompareTag("FreeShape") && child.position.y < 5) Destroy(child.gameObject);
         }

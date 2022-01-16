@@ -13,6 +13,7 @@ public class Button : MonoBehaviour
     [SerializeField] bool IsUIWallOpen = false; //ANCHOR menü ekranı geçip oyun başlamadan spawn etmemesi için yapıldı.
     Spawner spawner;
 
+
     private void Awake() {
         spawner = FindObjectOfType<Spawner>();
     }
@@ -28,7 +29,7 @@ public class Button : MonoBehaviour
         if(StoredShape == null && IsUIWallOpen && !Board.Instance.IsGameOver)
         {
             SpawnShapeInButton();
-        }      
+        }  
     }
 
 
