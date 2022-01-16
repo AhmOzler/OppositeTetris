@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] Transform topSquare;
     [SerializeField] Transform bonusSquare;
     [SerializeField] Transform[] buttons;
-    [SerializeField] bool isUIWallOpen = false; //ANCHOR menü ekranı geçip oyun başlamadan spawn etmemesi için yapıldı.
+    bool isUIWallOpen = false; //ANCHOR menü ekranı geçip oyun başlamadan spawn etmemesi için yapıldı.
     public bool IsUIWallOpen {
         set { if(value != isUIWallOpen) isUIWallOpen = value; }
     }

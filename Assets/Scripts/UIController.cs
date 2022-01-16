@@ -13,6 +13,8 @@ public class UIController : MonoBehaviour
     [SerializeField] TextMeshProUGUI changeButtonText;
     [SerializeField] TextMeshProUGUI scoreScreenText;
     [SerializeField] TextMeshProUGUI highScoreScreenText;
+    [SerializeField] GameObject rewardButton1;
+    [SerializeField] GameObject rewardButton2;
     [SerializeField] GameObject changeButton;
     Animator UIanims;
     string currentState;
@@ -100,6 +102,13 @@ public class UIController : MonoBehaviour
     private void DeleteHighScore() { //ANCHOR UnityEvent olarak kulluanılıyor.
 
         PlayerPrefs.DeleteKey("HighScore");                
+    }
+
+
+    public void ActivateRewardButtons(bool activate) {
+
+        rewardButton1.SetActive(activate);
+        rewardButton2.SetActive(activate);
     }
 
 

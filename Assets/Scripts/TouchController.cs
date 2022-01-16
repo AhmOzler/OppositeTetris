@@ -131,7 +131,7 @@ public class TouchController : MonoBehaviour
         }
 
         shape.transform.position = button.transform.position;
-        shape.SetPivotInButton();
+
         button = null;
         shape = null;
         isCoroutineActive = false;
