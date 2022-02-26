@@ -45,7 +45,7 @@ public class AdManager : MonoBehaviour
 
     private void Start() {
 
-       // UIController.Instance.ActivateRewardButtons(false);
+        UIController.Instance.ActivateRewardButtons(false);
 
         #if UNITY_ANDROID 
         {
@@ -58,11 +58,7 @@ public class AdManager : MonoBehaviour
             bannerID = IOSBannerID;
             interstitialID = IOSInterstitialID;
             rewardedID = IOSRewardedID;
-        }           
-        #else 
-        {
-            ID = "Tanımsız Platform";
-        }           
+        }                    
         #endif
 
         AdSize adSize = new AdSize(320, 50);
@@ -94,13 +90,12 @@ public class AdManager : MonoBehaviour
 
     private void HandleAdClosed(object sender, EventArgs e)
     {
-        //UIController.Instance.ActivateRewardButtons(false);
+        UIController.Instance.ActivateRewardButtons(false);
         RewardedAdText.text = "OnAdClosed";
     }
 
     private void HandleAdDidRecordImpression(object sender, EventArgs e)
     {
-       // UIController.Instance.ActivateRewardButtons(false);
         RewardedAdText.text = "OnAdDidRecordImpression";
     }
 
@@ -111,7 +106,7 @@ public class AdManager : MonoBehaviour
 
     private void HandleAdLoaded(object sender, EventArgs e)
     {
-       // UIController.Instance.ActivateRewardButtons(true);
+       UIController.Instance.ActivateRewardButtons(true);
        RewardedAdText.text = "OnAdLoaded";
     }
 
