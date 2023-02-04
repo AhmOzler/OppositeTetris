@@ -6,68 +6,72 @@ using System;
 
 public class Spawner : MonoBehaviour
 {
-    public static Action OnBannerAd;
-    [SerializeField] [Range(1, 8)] int sqrDensity = 7;
-    [SerializeField] [Range(.2f, 15)] float spawnSpeed = 10;
-    [SerializeField] [Range(0, 100)] int changeSqrPercentage = 1;
-    [SerializeField] Shape[] shapeTypes;
-    public Shape[] ShapeTypes => shapeTypes;
-    [SerializeField] Transform topSquare;
+    private static Spawner instance;
+    public static Spawner Instance => instance;
+    [SerializeField] [Range(0, 12)] int sqrBeginning = 5;
+    [SerializeField] [Range(1, 8)] int minDensity = 7;
+    [SerializeField] [Range(1, 8)] int maxDensity = 7;
+    [SerializeField] [Range(.2f, 25)] float beginSpawnSpeed = 10;
+    [SerializeField] [Range(10, 1)] float endSpawnSpeed = 10;
+    [SerializeField] AnimationCurve difficultyCurve;
+    [SerializeField] [Range(0, 10)] int bonusSqrPercentage = 1;
+    [SerializeField] [Range(1, 8)] int bonusSqrPercentageMultipler = 1;
+    [SerializeField] [Range(0, 10)] int fillEmptyBoard;
+    [SerializeField] Transform pointSquare;
     [SerializeField] Transform bonusSquare;
-    [SerializeField] Transform[] buttons;
-    bool isUIWallOpen = false; //ANCHOR menü ekranı geçip oyun başlamadan spawn etmemesi için yapıldı.
-    public bool IsUIWallOpen {
-        set { if(value != isUIWallOpen) isUIWallOpen = value; }
-    }
-    Transform buttonShapeHolder;
     Transform topShapeHolder;
-    IEnumerator spawnRoutine;
-
-    private void Start() {
-              
-        buttonShapeHolder = new GameObject("buttonShapeHolder").transform;
-        topShapeHolder = new GameObject("topShapeHolder").transform;
-        spawnRoutine = SpawnSqrAtTop(changeSqrPercentage);
-        StartCoroutine(spawnRoutine);
-    }
-    
-    
-    public Shape SpawnShape(Transform transform) {
-
-        Shape randomShape = shapeTypes[UnityEngine.Random.Range(0, shapeTypes.Length)];
-
-        var shape = Instantiate(randomShape, transform.position, Quaternion.identity, buttonShapeHolder) as Shape;
-        shape.name = randomShape.name;
-        return shape;
-    }
+    private float timer;
+    private float cooldown;
+    private float spawnTime;
 
 
-    public void DestroyShapeInButtons() { //ANCHOR ChangeButton'un(Eventolarak) üstünde kullanılıyor.
 
-        if(UIController.Instance.ChangeButtonCount <= 0) return;
-        
-        for (int i = 0; i < buttons.Length; i++)
+    private void Awake() 
+    {
+        if(!instance) 
         {
-            Button button = buttons[i].GetComponent<Button>();
-
-            if(!button.StoredShape) continue;
-
-            Destroy(button.StoredShape.gameObject);
-            button.StoredShape = null;
+            instance = this;
+        }
+        else {
+            instance = null;
+            Destroy(gameObject);
         }
     }
 
 
-    private List<int> DigitList()
+
+    private void Start() 
+    {           
+        topShapeHolder = new GameObject("SquareHolder").transform;
+        Board.Instance.OnSquareDestroy += SpawnWhenEmpty;
+    }
+    
+
+
+    private Transform Sqr() //ANCHOR - Belirtilen yüzde oranında bonusSquare yada topSquare döndürür.
+    {
+        float count = (float) Board.Instance.TotalDestroyedSquaresCount;
+
+        if(UnityEngine.Random.Range(0, 100) < bonusSqrPercentage * Mathf.Lerp(1f, bonusSqrPercentageMultipler, difficultyCurve.Evaluate(count / 1000f)))
+        {
+            return bonusSquare;
+        }
+
+        return pointSquare;
+    }
+
+
+
+    public List<int> DigitList(int minDensity, int maxDensity) //ANCHOR - Srq ların sıklığını ve pozisyonlarını belirler.
     {
         List<int> sqrDigits = new List<int>();
         sqrDigits.Clear();
+        
+        int density = (int) UnityEngine.Random.Range (minDensity, maxDensity + 1);
 
-        int density = (int)UnityEngine.Random.Range(sqrDensity - 1, sqrDensity + 1);
-
-        for (int x = 0; sqrDigits.Distinct().ToList().Count < density; x++)
+        while (sqrDigits.Distinct().ToList().Count < density) //ANCHOR - Liste'ye aynı eleman eklendiğinde listenin eleman sayısı çoğalmasın diye distinct kullanılarak liste'nin eleman sayısı kontrol edildi.
         {
-            int randomPosX = (int)UnityEngine.Random.Range(0, Board.Instance.BoardWidth);
+            int randomPosX = (int) UnityEngine.Random.Range (0, Board.Instance.BoardWidth);
             sqrDigits.Add(randomPosX);
         }
 
@@ -75,54 +79,14 @@ public class Spawner : MonoBehaviour
     }
 
 
-    public IEnumerator SpawnSqrAtTop(int percent)
-    {           
-        Board board = Board.Instance;
-        List<int> sqrDigits;
 
-        for (int i = 0; i < 3; i++) //ANCHOR Oyun başlangıcında TopSqr üretmek için.
-        {
-            yield return new WaitUntil(() => isUIWallOpen);
-
-            sqrDigits = DigitList();
-            board.ShiftRowDown();
-            SoundManager.Instance.Play("TeleportBricks");
-            SpawnTopSqr(percent, board, sqrDigits);           
-        }
-        
-
-        while(isUIWallOpen) //ANCHOR Rutin TopSqr üretmek için.
-        {   
-            yield return new WaitWhile(() => Board.Instance.IsAnimPlaying);
-            yield return new WaitUntil(() => isUIWallOpen);
-            yield return new WaitForSeconds(spawnSpeed - (UIController.Instance.Level * .2f)); 
-            
-            sqrDigits = DigitList();
-            board.ShiftRowDown();
-            SoundManager.Instance.Play("TeleportBricks");
-
-            SpawnTopSqr(percent, board, sqrDigits);           
-        }
-    }
-
-
-    private void Update() {
-
-        if(Board.Instance.IsGameOver) {
-
-            StopAllCoroutines();
-            AdManager.Instance.Invoke("ShowInterstitialAd", 0.6f);
-        }         
-    }
-
-
-    private void SpawnTopSqr(int percent, Board board, List<int> sqrDigits)
+    public void CreateSqr (Board board, List<int> sqrDigits) //ANCHOR - Sqr üretir.
     {
         for (int r = 0; r < sqrDigits.Count; r++)
         {
-            Vector2 randomXpos = new Vector2(sqrDigits[r], transform.position.y);
+            Vector2 randomXpos = new Vector2 (sqrDigits[r], Board.Instance.BoardHeight - 1); //ANCHOR Sqrların x ekseninde ki random pozisyonları.
         
-            Transform sqr = Instantiate(Sqr(percent), randomXpos, Quaternion.identity, topShapeHolder);
+            Transform sqr = Instantiate(Sqr(), randomXpos, Quaternion.identity, topShapeHolder);
 
             int hologramFadePropertyID = Shader.PropertyToID("_HologramFade"); //ANCHOR Hologram'ın fade ini 0 lamak için.
             var mat = sqr.GetComponent<SpriteRenderer>().material;
@@ -133,25 +97,96 @@ public class Spawner : MonoBehaviour
     }
 
 
-    Transform Sqr(int percent) {
 
-        if(UnityEngine.Random.Range(0, 100) < percent) {
-            return bonusSquare;
+    public IEnumerator SpawnSqrAtStart() 
+    {
+        Board board = Board.Instance;
+        List<int> sqrDigits;
+
+        yield return new WaitUntil(() => UIController.Instance.IsUIWallOpen);
+
+        for (int i = 0; i < sqrBeginning; i++) //ANCHOR Oyun başlangıcında TopSqr üretmek için.
+        {
+            sqrDigits = DigitList(minDensity, maxDensity);
+            board.ShiftRowDown();          
+            CreateSqr(board, sqrDigits);           
         }
 
-        return topSquare;
+        SoundManager.Instance.Play("TeleportBricks");
     }
 
 
-    public void RotateShapesInButton(int angle) { //ANCHOR RotationButton'un(Event olarak) üstünde kullanılıyor.
 
-        SoundManager.Instance.Play("ButtonClick");
+    public void SpawnInTime()
+    {
+        timer += Time.deltaTime;
 
-        foreach (Transform button in buttons)
+        if (timer >= cooldown)
+        {    
+            float count = (float) Board.Instance.TotalDestroyedSquaresCount;
+            
+            spawnTime = Mathf.Lerp(beginSpawnSpeed, endSpawnSpeed, difficultyCurve.Evaluate(count / 1000f));           
+            cooldown += spawnTime;
+
+            StartCoroutine("TimeBarHighlight", .3f);
+
+            Board.Instance.ShiftRowDown();
+            SoundManager.Instance.Play("TeleportBricks");
+            CreateSqr(Board.Instance, DigitList(minDensity, maxDensity));
+        }
+
+        UIController.Instance.SetTimeBarShader("_SourceGlowDissolveFade", ((cooldown - timer) * 9 / beginSpawnSpeed));
+
+        //Debug.Log("cooldown : " + cooldown);
+    }
+
+
+
+    private void SpawnWhenEmpty() 
+    {       
+        for (int i = 0; i < fillEmptyBoard; i++)
+        {        
+            Board.Instance.ShiftRowDown();
+            CreateSqr(Board.Instance, DigitList(minDensity, maxDensity));
+        } 
+
+        timer = 0;
+        cooldown = spawnTime;
+
+        SoundManager.Instance.Play("TeleportBricks");
+    }
+
+
+
+    public void BonusTimeButton(int value) //ANCHOR - ChangeButton'un üstünde event olarak kullanılıyor.
+    {
+        if(UIController.Instance.ChangeButtonCount < value) return;
+
+        if((cooldown - timer) <= beginSpawnSpeed)
+            cooldown += value * 2;
+
+
+        if((cooldown - timer) > beginSpawnSpeed) 
+            cooldown = timer + beginSpawnSpeed;
+        
+        float fade = value <= 1 ? fade = .15f : .3f;
+
+        IEnumerator num = UIController.Instance.TimeBarHighlight(fade);
+
+        StartCoroutine(num);               
+    }
+
+
+
+    IEnumerator TimeBarHighlight(float fadeValue) { //ANCHOR - BonusTimeButton methodunda kullanılıyor.
+
+        float fade = fadeValue;
+        
+        while(fade >= 0 ) 
         {
-            if(!button.GetComponent<Button>().StoredShape) continue;
-
-            button.GetComponent<Button>().StoredShape.Rotate(angle);
+            fade -= Time.deltaTime;
+            UIController.Instance.SetTimeBarShader("_RecolorFade", fade);
+            yield return null;
         }
     }
 }

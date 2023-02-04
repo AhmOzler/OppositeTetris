@@ -8,7 +8,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/LeaderBoard.unity
+    guid: 3829a015527b3cd44bde416804f23f42
   m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 22dc979f30a178b44b2709337c94651a, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 040143e68536c4146a98506acb51ef59, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 4806e337fb41e2748b1042265f787e80, type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 60e919767ce7bbb48ac15023c0a083e3, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6d8942174040c62409abcd3f2764c237, type: 2}

@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - ShadowShape
-  - StoredShape
-  - FreeShape
   - RM_Background
   - RM_Canvas
-  - BonusShape
+  - PointSquares
+  - BonusSquares
+  - DefaultSquares
+  - StoredSquares
   layers:
   - Default
   - TransparentFX

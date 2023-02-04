@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6811267595623673142}
   - {fileID: 6811267594635593634}
@@ -50,7 +51,7 @@ MonoBehaviour:
   autoCheckResolutionChange: 1
   autoCheckFrequency: 0.5
   DebugMode: 0
-  zoomMethod: 1
+  zoomMethod: 0
   zoomSpeed: 0.5
   zoomOvershootProtectionSpeed: 0.05
   CanvasBoundary: {fileID: 5981192804951662119}
@@ -84,6 +85,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6811267594798996882}
   m_RootOrder: 1
@@ -131,6 +133,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6811267594798996882}
   m_RootOrder: 0

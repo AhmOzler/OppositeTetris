@@ -120,7 +120,7 @@ TextureImporter:
       213: 901219171295218749
     second: Sqr1SpawnAnim_38
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -141,6 +141,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -179,6 +180,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -230,6 +232,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1072,6 +1086,46 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Sqr1SpawnAnim_32: 2365035521596643027
+      Sqr1SpawnAnim_30: 4698768806027214247
+      Sqr1SpawnAnim_38: 901219171295218749
+      Sqr1SpawnAnim_4: -6297331275639103519
+      Sqr1SpawnAnim_7: 2818342632550726551
+      Sqr1SpawnAnim_25: -1261551933405296757
+      Sqr1SpawnAnim_10: -3461146657430645961
+      Sqr1SpawnAnim_23: -8412766051277325397
+      Sqr1SpawnAnim_12: -1317936041306351873
+      Sqr1SpawnAnim_17: 8847517069087739280
+      Sqr1SpawnAnim_3: 5813339893000230783
+      Sqr1SpawnAnim_5: -1092384182659318409
+      Sqr1SpawnAnim_1: 7114197378274585010
+      Sqr1SpawnAnim_9: 3349001369728324912
+      Sqr1SpawnAnim_22: 3536976325126453591
+      Sqr1SpawnAnim_35: 5827071701084154826
+      Sqr1SpawnAnim_26: 1517694728287886688
+      Sqr1SpawnAnim_37: 3408469846021177239
+      Sqr1SpawnAnim_33: -8628191777227147995
+      Sqr1SpawnAnim_24: 3443902330453198623
+      Sqr1SpawnAnim_8: 5132398929541166917
+      Sqr1SpawnAnim_27: 3682451842920653756
+      Sqr1SpawnAnim_19: -8085841117458285299
+      Sqr1SpawnAnim_28: -5898009462142617697
+      Sqr1SpawnAnim_20: -7454821402309711686
+      Sqr1SpawnAnim_11: -8550243142867210009
+      Sqr1SpawnAnim_18: -910475278894614151
+      Sqr1SpawnAnim_29: -8265681650456548387
+      Sqr1SpawnAnim_34: -9024232509343429584
+      Sqr1SpawnAnim_36: -267978417725012664
+      Sqr1SpawnAnim_31: 6422183199930965111
+      Sqr1SpawnAnim_6: -2260522542582170315
+      Sqr1SpawnAnim_15: -2095360810843600146
+      Sqr1SpawnAnim_2: 1429530350352674608
+      Sqr1SpawnAnim_13: 4603794131115565945
+      Sqr1SpawnAnim_0: -8484209694507244627
+      Sqr1SpawnAnim_14: 8122890679506162611
+      Sqr1SpawnAnim_21: -6973686334973584451
+      Sqr1SpawnAnim_16: 6919165515020222045
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -210,7 +210,7 @@ TextureImporter:
       213: -4092974856589639623
     second: Sqr4DestroyAnim_68
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -231,6 +231,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -269,6 +270,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -320,6 +322,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1792,6 +1806,76 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Sqr4DestroyAnim_5: -2190594998700930003
+      Sqr4DestroyAnim_12: 838445675146136816
+      Sqr4DestroyAnim_7: -5329330645921613613
+      Sqr4DestroyAnim_28: -1088544316066191343
+      Sqr4DestroyAnim_11: 2938590287519183780
+      Sqr4DestroyAnim_51: -1522825327499442151
+      Sqr4DestroyAnim_0: 7204842031849456899
+      Sqr4DestroyAnim_46: 5699818692960834043
+      Sqr4DestroyAnim_2: -8389456382133862215
+      Sqr4DestroyAnim_24: -8142487174318203507
+      Sqr4DestroyAnim_47: -3610767939789111349
+      Sqr4DestroyAnim_35: 1747691480702390599
+      Sqr4DestroyAnim_42: -6959574945036602568
+      Sqr4DestroyAnim_3: 786311657504711781
+      Sqr4DestroyAnim_66: -3346337340293220672
+      Sqr4DestroyAnim_6: -8895652412057800966
+      Sqr4DestroyAnim_43: 6984158679880513157
+      Sqr4DestroyAnim_50: -6978465522765456727
+      Sqr4DestroyAnim_37: -6150291365017032687
+      Sqr4DestroyAnim_16: -8622111405875817900
+      Sqr4DestroyAnim_22: -929931281702470039
+      Sqr4DestroyAnim_27: 4810602804341785392
+      Sqr4DestroyAnim_54: -1716643450458268745
+      Sqr4DestroyAnim_39: -125112118263324292
+      Sqr4DestroyAnim_34: -1346273456567148742
+      Sqr4DestroyAnim_4: -7327739747182764912
+      Sqr4DestroyAnim_30: -47123791312341840
+      Sqr4DestroyAnim_18: 5662993649249144705
+      Sqr4DestroyAnim_21: 2500417903994823555
+      Sqr4DestroyAnim_49: -1842164861261441015
+      Sqr4DestroyAnim_17: 1438211333365933377
+      Sqr4DestroyAnim_62: -4688869933186841766
+      Sqr4DestroyAnim_8: 4640071628030046490
+      Sqr4DestroyAnim_58: 6071796432669186745
+      Sqr4DestroyAnim_45: 7392062715459604937
+      Sqr4DestroyAnim_52: -7805598088739574912
+      Sqr4DestroyAnim_10: -2475397590887860953
+      Sqr4DestroyAnim_64: 7363842506210351834
+      Sqr4DestroyAnim_65: 3689569775882417144
+      Sqr4DestroyAnim_19: 5343043960400795644
+      Sqr4DestroyAnim_68: -4092974856589639623
+      Sqr4DestroyAnim_15: 6427368747934342663
+      Sqr4DestroyAnim_61: -7658249043796023860
+      Sqr4DestroyAnim_31: -3033621435017599333
+      Sqr4DestroyAnim_32: -3817156512787904059
+      Sqr4DestroyAnim_36: -3839669035757541313
+      Sqr4DestroyAnim_14: 482575006492102085
+      Sqr4DestroyAnim_1: 2341527873044778168
+      Sqr4DestroyAnim_13: 6626319482085481528
+      Sqr4DestroyAnim_44: -4232004441584876540
+      Sqr4DestroyAnim_67: -2272863988192062478
+      Sqr4DestroyAnim_9: 7844755016260772238
+      Sqr4DestroyAnim_56: -3563660549942191230
+      Sqr4DestroyAnim_48: -5985241985630299274
+      Sqr4DestroyAnim_25: -2012065208805040774
+      Sqr4DestroyAnim_20: 8701262629912231431
+      Sqr4DestroyAnim_40: 3656679952242688909
+      Sqr4DestroyAnim_55: 3238732684509825677
+      Sqr4DestroyAnim_63: -5680850277372057104
+      Sqr4DestroyAnim_33: -3678183410640446626
+      Sqr4DestroyAnim_23: -4624200327227861297
+      Sqr4DestroyAnim_41: 7671711362557411061
+      Sqr4DestroyAnim_53: 4201898959857564653
+      Sqr4DestroyAnim_57: -4487439685729540856
+      Sqr4DestroyAnim_59: 3403428480685296783
+      Sqr4DestroyAnim_29: 1290367865799444886
+      Sqr4DestroyAnim_60: 5438341251784787891
+      Sqr4DestroyAnim_38: 8087953308727789790
+      Sqr4DestroyAnim_26: -4703545462356651362
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -93,7 +93,7 @@ TextureImporter:
       213: -1257905134978954379
     second: Sqr2TeleportAnim_29
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -114,6 +114,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -152,6 +153,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -203,6 +205,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -856,6 +870,37 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Sqr2TeleportAnim_2: 8109782084927030365
+      Sqr2TeleportAnim_11: -5119957280228750179
+      Sqr2TeleportAnim_5: -3960018858368829305
+      Sqr2TeleportAnim_3: 8626433342951308523
+      Sqr2TeleportAnim_14: 7017014210460045875
+      Sqr2TeleportAnim_10: 5302848982580749838
+      Sqr2TeleportAnim_6: 2821945364146363612
+      Sqr2TeleportAnim_8: -1410100760913997550
+      Sqr2TeleportAnim_22: 2122386886987511507
+      Sqr2TeleportAnim_16: 6924488091854482583
+      Sqr2TeleportAnim_1: 4178827640125496906
+      Sqr2TeleportAnim_15: 3142173963312368404
+      Sqr2TeleportAnim_0: -8422738896208197371
+      Sqr2TeleportAnim_17: 6097897940098244470
+      Sqr2TeleportAnim_19: 7256295438260661550
+      Sqr2TeleportAnim_27: -8069153972293103386
+      Sqr2TeleportAnim_21: 3532836309519228850
+      Sqr2TeleportAnim_7: 4061016460662995486
+      Sqr2TeleportAnim_9: 1984737429147139419
+      Sqr2TeleportAnim_18: -6144548159463725510
+      Sqr2TeleportAnim_12: -2352022687887662132
+      Sqr2TeleportAnim_4: -2795614634631786535
+      Sqr2TeleportAnim_20: -4595979650520643861
+      Sqr2TeleportAnim_25: 280608565928289033
+      Sqr2TeleportAnim_28: 1569667814337052032
+      Sqr2TeleportAnim_23: 7010622479940496344
+      Sqr2TeleportAnim_26: 5425119480140811768
+      Sqr2TeleportAnim_29: -1257905134978954379
+      Sqr2TeleportAnim_13: -6469809060045348130
+      Sqr2TeleportAnim_24: 997903562511329677
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

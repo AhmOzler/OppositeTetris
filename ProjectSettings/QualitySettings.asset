@@ -121,9 +121,9 @@ QualitySettings:
     resolutionScalingFixedDPIFactor: 1
     customRenderPipeline: {fileID: 0}
     excludedTargetPlatforms:
-    - Android
     - tvOS
     - Standalone
+    - Android
   - serializedVersion: 2
     name: High
     pixelLightCount: 2
@@ -240,9 +240,9 @@ QualitySettings:
     resolutionScalingFixedDPIFactor: 1
     customRenderPipeline: {fileID: 0}
     excludedTargetPlatforms:
-    - Standalone
     - tvOS
     - Android
+    - Standalone
   m_PerPlatformDefaultQuality:
     Android: 2
     CloudRendering: 5
@@ -252,6 +252,7 @@ QualitySettings:
     Nintendo Switch: 5
     PS4: 5
     PS5: 5
+    Server: 0
     Stadia: 5
     Standalone: 5
     WebGL: 3

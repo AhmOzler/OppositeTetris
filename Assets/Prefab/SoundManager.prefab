@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8461930917513106111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8461930917513106113}
+  - component: {fileID: 8461930917513106112}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &8461930917513106113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8461930917513106111}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.96, y: 4.41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8461930917513106112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8461930917513106111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c59f3ea0272b1b944be3ce52c24d7ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 2f597a0126e6a4b419c445cfd8ef7e29, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    playOneTime: 0
+  - audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 25156e30641959b438a6e3cfe59ed8f4, type: 3}
+    volume: 0.35
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    playOneTime: 0
+  - audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 6fe82bc7e4a54484db547aeadfad8e2d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    playOneTime: 0
+  - audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 407a31c25fe2fa0408d85d004bccca6b, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    playOneTime: 0
+  - audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: bfcd281879a9c24448dec0c0e5a80bfc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    playOneTime: 1
+  - audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: b9abe4d6805495e469097586c053a7d2, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    playOneTime: 0

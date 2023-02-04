@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2308531078110220918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2308531078110220919}
+  - component: {fileID: 2308531078110220874}
+  - component: {fileID: 2308531078110220872}
+  - component: {fileID: 2308531078110220875}
+  m_Layer: 5
+  m_Name: ShapeButton1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!224 &2308531078110220919
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2308531078110220918}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -1340}
+  m_SizeDelta: {x: 180, y: 180}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2308531078110220874
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2308531078110220918}
+  m_CullTransparentMesh: 1
+--- !u!114 &2308531078110220872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2308531078110220918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32f8c3de29918149ada10f26d7583de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxShape: {fileID: 0}
+  shapeTypes:
+  - {fileID: 261482338867328924, guid: 050cb6f97d476024b95159a3b0a2ae68, type: 3}
+  - {fileID: -4728277912178614949, guid: 0efa7e4bbae2b03429cb08424ea5dd66, type: 3}
+  - {fileID: -4728277912178614949, guid: 381f5580e579a864d9840e541b2e2bc6, type: 3}
+  - {fileID: 261482338867328924, guid: 620559ece6a587d4b9d0d1152ebe6f3b, type: 3}
+  - {fileID: 261482338867328924, guid: 7d6675788c6a67c43b6220caeb4a5b7d, type: 3}
+  - {fileID: 261482338867328924, guid: 1b310a1d7b22c474fb5a2ce7b7e6ff0a, type: 3}
+  - {fileID: 261482338867328924, guid: 088544fa52541d344b49e4482924a9d0, type: 3}
+  - {fileID: 261482338867328924, guid: 51fff833cec9fb4418f467ab99da98e9, type: 3}
+  - {fileID: 261482338867328924, guid: 6e40da661246e36409dcb532cd34a366, type: 3}
+  - {fileID: 261482338867328924, guid: d53ebd9320d53a2499ec55b8ee73c8b2, type: 3}
+  - {fileID: 261482338867328924, guid: b21b5362ed7537e409944f6e165af51c, type: 3}
+  shapesToRemove:
+  - 
+  - 
+  - 
+  filteredShapes: []
+--- !u!61 &2308531078110220875
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2308531078110220918}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 180, y: 180}
+  m_EdgeRadius: 0

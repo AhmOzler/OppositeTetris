@@ -2,15 +2,19 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GameControllerPanel
   m_Shader: {fileID: 4800000, guid: 0803c241834332942abfcbd27c498b46, type: 3}
-  m_ShaderKeywords: _ENABLEHOLOGRAM_ON _SHADERSPACE_UV _TIMESETTINGS_LINEAR_DEFAULT
-    _UBERFADING_NONE
+  m_ValidKeywords:
+  - _ENABLEHOLOGRAM_ON
+  - _SHADERSPACE_UV
+  - _TIMESETTINGS_LINEAR_DEFAULT
+  - _UBERFADING_NONE
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -112,6 +116,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - PixelSnap: 0
     - _AddColorContrast: 0.5
@@ -121,8 +126,8 @@ Material:
     - _AddHueFade: 1
     - _AddHueSaturation: 1
     - _AddHueSpeed: 1
-    - _AlphaTintFade: 1
-    - _AlphaTintMinAlpha: 0.05
+    - _AlphaTintFade: 0.067
+    - _AlphaTintMinAlpha: 0.078
     - _AlphaTintPower: 1
     - _BlackTintFade: 1
     - _BlackTintPower: 2
@@ -194,7 +199,7 @@ Material:
     - _EnableFullGlowDissolve: 0
     - _EnableGlitch: 0
     - _EnableHalftone: 0
-    - _EnableHologram: 1
+    - _EnableHologram: 1.1
     - _EnableHue: 0
     - _EnableInkSpread: 0
     - _EnableInnerOutline: 0
@@ -241,7 +246,7 @@ Material:
     - _FullGlowDissolveFade: 0.5
     - _FullGlowDissolveWidth: 0.5
     - _GlitchBrightness: 4
-    - _GlitchFade: 0.068
+    - _GlitchFade: 1
     - _GlitchHueSpeed: 1
     - _GlitchMaskMin: 0.4
     - _GlossMapScale: 1
@@ -256,7 +261,7 @@ Material:
     - _HologramDistortionOffset: 0
     - _HologramDistortionScale: 10
     - _HologramDistortionSpeed: 2
-    - _HologramFade: 0.724
+    - _HologramFade: 0.75
     - _HologramLineFrequency: 10
     - _HologramLineGap: 2.8
     - _HologramLineSpeed: 2
@@ -292,10 +297,10 @@ Material:
     - _RainbowBrightness: 2
     - _RainbowContrast: 1
     - _RainbowDensity: 0.5
-    - _RainbowFade: 1
+    - _RainbowFade: 0.497
     - _RainbowNoiseFactor: 0.2
     - _RainbowSaturation: 1
-    - _RainbowSpeed: 1
+    - _RainbowSpeed: 0.4
     - _RecolorFade: 1
     - _RectHeight: 100
     - _RectWidth: 100
