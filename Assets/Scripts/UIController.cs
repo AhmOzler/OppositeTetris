@@ -19,6 +19,7 @@ public class UIController : MonoBehaviour
     [SerializeField] GameObject changeButton;
     [SerializeField] GameObject timeBar;
     [SerializeField] GameObject panel;
+    [SerializeField] GameObject hint;
     [SerializeField] RectTransform controlPanelVfx;
     [SerializeField] Transform[] buttons;
     [SerializeField] List<Shape> changeButtonList;
@@ -33,7 +34,7 @@ public class UIController : MonoBehaviour
     public int ChangeButtonCount => changeButtonCount;  
     [HideInInspector] [SerializeField] bool isUIWallOpen;
     public bool IsUIWallOpen => isUIWallOpen;
-  
+    
 
 
     private int HighScore
@@ -46,8 +47,8 @@ public class UIController : MonoBehaviour
 
     private void Awake() {
         
-        UIanims = GetComponent<Animator>();
-        
+        UIanims = GetComponent<Animator>();     
+
         if(instance == null)
             instance = this;
         else {
@@ -62,6 +63,7 @@ public class UIController : MonoBehaviour
 
         Application.targetFrameRate = 60;
         ScoreText();
+        hint.SetActive(false);
         changeButtonText.text = changeButtonCount.ToString();
         changeButton.GetComponent<Animator>().SetInteger("PressCount", changeButtonCount);
 
@@ -71,6 +73,21 @@ public class UIController : MonoBehaviour
         SetTimeBarShader("_SourceGlowDissolveFade", 9);
 
         Board.Instance.OnSquareDestroy += EmptyBoardExtraPoint;
+    }
+
+
+    public void PupHintBox(bool hintActivated, int failedNum) {
+
+        if(HighScore > 40) { 
+            hint.SetActive(false); 
+            return;     
+        }
+        
+
+        if(failedNum >= 1)
+            hint.SetActive(hintActivated);
+        else
+            hint.SetActive(false);
     }
 
 
@@ -235,14 +252,15 @@ public class UIController : MonoBehaviour
 
 
 
-    void Update() 
+    /* void Update() 
     {
         if(Input.GetKeyDown(KeyCode.Delete)) {
+            Debug.Log("All prefs are deleted!!");
             PlayerPrefs.DeleteKey("HighScore");
             PlayerPrefs.DeleteKey("PlayerName");
             PlayerPrefs.SetString("PlayerName", null);
         }    
-    }
+    } */
 
 
 

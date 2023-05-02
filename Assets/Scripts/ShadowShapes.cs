@@ -10,7 +10,7 @@ public class ShadowShapes : MonoBehaviour
     Transform[] shadowShapeArray;
     [SerializeField] Shape[] shapeTypes;
     public Shape[] ShapeTypes => shapeTypes;
-    Transform shadowShape = null;
+    public Transform shadowShape = null;
     public Transform ShadowShape => shadowShape;
     bool isHitTop;
 

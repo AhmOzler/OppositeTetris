@@ -306,7 +306,7 @@ Material:
     - _RainbowNoiseFactor: 0.2
     - _RainbowSaturation: 1
     - _RainbowSpeed: 1
-    - _RecolorFade: 0.2846272
+    - _RecolorFade: -0.016601672
     - _RectHeight: 100
     - _RectWidth: 100
     - _Saturation: 1
@@ -342,7 +342,7 @@ Material:
     - _SourceAlphaDissolveInvert: 0
     - _SourceAlphaDissolveNoiseFactor: 0.2
     - _SourceAlphaDissolveWidth: 0.2
-    - _SourceGlowDissolveFade: 8.356218
+    - _SourceGlowDissolveFade: 4.0858703
     - _SourceGlowDissolveInvert: 0
     - _SourceGlowDissolveNoiseFactor: 0.2
     - _SourceGlowDissolveWidth: 0.1

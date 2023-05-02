@@ -64,7 +64,12 @@ public class GameManager : MonoBehaviour
             InterstitialAdManager.Instance.Invoke("ShowInterstitialAd", 2);
             UIController.Instance.GetUIAnim ("CloseScorePanel");
             Board.Instance.DestroyAllAndClosePanel();
-            ShadowShapes.Instance.ShadowShape.gameObject.SetActive(false);
+
+            if(ShadowShapes.Instance.ShadowShape) ShadowShapes.Instance.ShadowShape.gameObject.SetActive(false);
+                
+            //LeaderBoardController.Instance.SavePlayerName();
+            //LeaderBoardController.Instance.SetPlayerName();
+            LeaderBoardController.Instance.SubmitScore();          
         }
     }
 }

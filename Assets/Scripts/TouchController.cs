@@ -10,6 +10,7 @@ public class TouchController : MonoBehaviour
     Shape shape = null;
     bool isCoroutineActive = false;
     IEnumerator destroyRoutine;
+    int failedNum;
 
 
 
@@ -73,7 +74,7 @@ public class TouchController : MonoBehaviour
         if (touch.phase == TouchPhase.Moved)
         {
             shape.SetAlphaColor(1f);
-
+            UIController.Instance.PupHintBox(true, failedNum);
             shape.transform.position = new Vector2(touchPos.x, touchPos.y + 1);
             ShapeClamp();
 
@@ -116,12 +117,16 @@ public class TouchController : MonoBehaviour
                 UIController.Instance.LevelText();
 
                 button.GetComponent<Button>().BoxShape = button.GetComponent<Button>().SpawnShape(button.GetComponent<Button>().RandomShape1());
+                failedNum = 0;
             }
             else
             {            
                 StartCoroutine("TurntoButtonPos");
-                SoundManager.Instance.Play("InvalidPosition");                           
-            }      
+                SoundManager.Instance.Play("InvalidPosition");
+                failedNum++;
+            }  
+
+            UIController.Instance.PupHintBox(false, failedNum);    
         }
     }
 

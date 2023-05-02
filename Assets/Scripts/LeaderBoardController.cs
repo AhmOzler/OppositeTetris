@@ -21,6 +21,7 @@ public class LeaderBoardController : MonoBehaviour
     [SerializeField] TextMeshProUGUI playerIDText;
     [SerializeField] TextMeshProUGUI playerScoreText;
     [SerializeField] RectTransform textContainer;
+    [SerializeField] RectTransform textInfo;
 
 
     void Awake() 
@@ -53,9 +54,19 @@ public class LeaderBoardController : MonoBehaviour
     }
 
 
+    /* private void Update() {
+
+        if(Input.GetMouseButton(0))
+        {
+            Debug.Log("All playerPrefs are deleted");
+            PlayerPrefs.DeleteAll();
+        } 
+    } */
+
+
     IEnumerator Setuproutine() 
     {
-        yield return InitializeLeaderBoard();      
+        yield return InitializeLeaderBoard();
         yield return FetchTopHighscoresRoutine();
         yield return ShowLeaderBoard();
     }
@@ -86,7 +97,7 @@ public class LeaderBoardController : MonoBehaviour
 
     public void SavePlayerName() //ANCHOR - PlayerName Inputfieldda event olarak kullanılıyor.
     {
-        PlayerPrefs.SetString("PlayerName", playerName.text);              
+        PlayerPrefs.SetString("PlayerName", playerName.text);         
     }
 
 
@@ -138,7 +149,7 @@ public class LeaderBoardController : MonoBehaviour
         {
             if (response.success)
             {
-                playerRankText.text = response.rank.ToString() + ".";
+                playerRankText.text = response.rank.ToString();
                 playerIDText.text = PlayerPrefs.GetString("PlayerName") != "" ? response.player.name : PlayerPrefs.GetString("PlayerID");
                 playerScoreText.text = response.score.ToString();
             }
@@ -157,27 +168,23 @@ public class LeaderBoardController : MonoBehaviour
     {
         bool done = false;
 
-        LootLockerSDKManager.GetScoreList(leaderBoardID, 1000, 0, (response) =>
+        LootLockerSDKManager.GetScoreList(leaderBoardID, 2000, 0, (response) =>
         {
             if(response.success)
             {
-                string tempPlayerRanks = "";
-                string tempPlayerNames = "";
-                string tempPlayerScores = "";
-
                 LootLockerLeaderboardMember[] members = response.items;
-                textContainer.sizeDelta = new Vector2(1080, members.Length * 100);
+                textContainer.sizeDelta = new Vector2(textContainer.sizeDelta.x, members.Length * 135);
                 
                 for (int i = 0; i < members.Length; i++)
                 {
-                    tempPlayerRanks += members[i].rank + "." + "\n\n";
-                    tempPlayerNames += members[i].player.name != "" ? members[i].player.name + "\n\n": members[i].player.id + "\n\n";
-                    tempPlayerScores += members[i].score + "\n\n";
+                    RectTransform rectText = Instantiate(textInfo, textContainer.transform);               
+                    rectText.localPosition = new Vector2(0, i * -135);
+                    
+                    rectText.GetChild(0).GetComponent<TextMeshProUGUI>().text = members[i].rank.ToString();
+                    rectText.GetChild(1).GetComponent<TextMeshProUGUI>().text = members[i].player.name != "" ? members[i].player.name : members[i].player.id.ToString();
+                    rectText.GetChild(2).GetComponent<TextMeshProUGUI>().text = members[i].score.ToString();
                 }
-                done = true;
-                rankText.text = tempPlayerRanks;
-                IDText.text = tempPlayerNames;
-                scoreText.text = tempPlayerScores;
+                done = true;             
             }
             else
             {
